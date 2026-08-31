@@ -1,0 +1,31 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{tikz}
+
+\begin{document}
+
+
+\begin{section}{Uppgift 1.17}
+
+  Sätt $f(x) = x^2$. Rira kurvorna:
+
+\begin{figure}
+  \centering
+\begin{tikzpicture}
+  \draw[->] (-3, 0) -- (4.2, 0) node[right] {$x$};
+  \draw[->] (0, -3) -- (0, 4.2) node[above] {$y$};
+  \draw[scale=0.5, domain=-3:3, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
+  \draw[scale=0.5, domain=-3:3, smooth, variable=\y, red]  plot ({\y*\y}, {\y});
+\end{tikzpicture}    
+\end{figure}
+
+  
+  
+\end{section}
+
+\end{document}
