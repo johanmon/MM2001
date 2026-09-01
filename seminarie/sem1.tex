@@ -7,25 +7,205 @@
 
 \usepackage{tikz}
 
+\tikzset{
+  excl/.style = {circle, draw=black, inner sep=0pt, minimum size=4pt}
+}
+
+\tikzset{
+  incl/.style = {circle, draw=black, fill=black, inner sep=0pt, minimum size=4pt}
+}
+
+
+\usepackage{pgfplots}
+
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{enumitem}
+
+\usepackage{multicol}
+
+\usepackage{amsmath}
+
+
 \begin{document}
 
+\title{
+    \textbf{MM2001: seminarieuppgifter 1}
+}
+\author{Johan Montelius}
+\date{HT 2026}
 
-\begin{section}{Uppgift 1.17}
+\maketitle
 
-  Sätt $f(x) = x^2$. Rira kurvorna:
 
-\begin{figure}
+
+\section*{Uppgift 1.7}
+
+Sätt $f(x) = x^2$. Rita kurvorna:
+
+\begin{multicols}{2}
+  \begin{enumerate}[label=\alph*]
+  \item $y = f(x)$
+  \item $y = f(x-1)$
+  \item $y = f(x+1)$
+  \item $y = f(x) - 1 $
+  \item $y = f(x) + 2 $
+  \item $y = f(2x) $
+  \item $y = 1/2 f(X) $
+  \item $y = -f(x) $
+  \item $y = f(-x) $    
+  \end{enumerate}
+\end{multicols}
+
+Svar: grafer i Fig.\ref{fig:1.7}
+    
+\begin{figure}[]
   \centering
-\begin{tikzpicture}
-  \draw[->] (-3, 0) -- (4.2, 0) node[right] {$x$};
-  \draw[->] (0, -3) -- (0, 4.2) node[above] {$y$};
-  \draw[scale=0.5, domain=-3:3, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
-  \draw[scale=0.5, domain=-3:3, smooth, variable=\y, red]  plot ({\y*\y}, {\y});
-\end{tikzpicture}    
+  \hspace*{-3cm}
+  \begin{subfigure}{.4\paperwidth}
+    \begin{tikzpicture}
+      \begin{axis}[domain=-2:2, grid=major]
+        \addplot [line width=1pt,-] {x^2} node [pos=0.2,left] {$f(x)$};
+        \addplot [line width=1pt,-] {(x - 1)^2} node [pos=0.1,right] {$f(x-1)$};
+        \addplot [line width=1pt,-] {(x + 1)^2} node [pos=0.8,left] {$f(x+1)$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{subfigure}%
+  \begin{subfigure}{.4\paperwidth}
+    \begin{tikzpicture}
+      \begin{axis}[domain=-2:2, grid=major]
+        \addplot [line width=1pt,-] {x^2 - 1} node [pos=0.7,right] {$f(x) -1$};
+        \addplot [line width=1pt,-] {x^2 + 2} node [pos=0.7,left] {$f(x) + 2$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{subfigure}
+
+  \hspace*{-3cm}
+  \begin{subfigure}{.4\paperwidth}
+    \begin{tikzpicture}
+      \begin{axis}[domain=-2:2, grid=major]
+        \addplot [line width=1pt,-] {(2 * x)^2} node [pos=0.8,left]{$f(2x)$};
+        \addplot [line width=1pt,-] {1/2 * x^2} node [pos=0.0,above right] {$1/2 f(x)$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{subfigure}%
+  \begin{subfigure}{.4\paperwidth}
+    \begin{tikzpicture}
+      \begin{axis}[domain=-2:2, grid=major]
+        \addplot [line width=1pt,-] {-(x)^2} node [pos=0.8,right] {$-f(x)$};
+        \addplot [line width=1pt,-] {(-x)^2} node [pos=0.2,right] {$f(-x)$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{subfigure}
+  \caption{Svar på uppgift 1.7}
+  \label{fig:1.7}
 \end{figure}
 
+\section*{Uppgift 1.10}
+
+Lös ekvationerna:
+
+\begin{itemize}
+\item[a)] $ |x| = 4 $  ger: $ x_1 = 4$, $x_2 = -4$
+\item[b)] $ |x| = 0 $  ger: $ x = 0$
+\item[c)] $ |x| = -1$  är falskt, absolutbeloppet är alltid positivt
+\item[f)] $ |1-x] = 1$ ger: $x_1 = 0$, $x_2 = 2$
+\end{itemize}
+
+\section*{Uppgift 1.13}
+
+Rita mängden av de tal för vilka:
+
+\begin{itemize}
+\item[b)] $|x| \geq 2$ ger: $x_1 \leq -2$, $x_2 \geq 2$
+\item[c)]  $|x-1| < 2$ ger $-1 < x < 3$
+\end{itemize}
+
+Svar: Uppritat i Fig.\ref{fig:1.13}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+        % Set x-axis range and grid
+        xmin=-4, xmax=4,
+        xtick={-4,-3,...,4},
+        xmajorgrids = true,
+        % Hide the y-axis completely
+        ymin=0, ymax=3,
+        hide y axis,
+        % Draw only the bottom x-axis line
+        axis x line=bottom,
+        axis line style={-},
+        % Prevent marks from being clipped at the boundaries
+        clip=false
+      ]
+
+
+      \addplot[thick, mark=o, nodes near coords={}] 
+      coordinates {(-1, 1)};
+      \addplot[thick, mark=o, forget plot] 
+         coordinates {(3, 1)};
+      \addplot[thick, forget plot] 
+        coordinates {(-1, 1) (3, 1)}
+        node[pos=0.2, above, black] {c};      
+
+      \addplot[thick, nodes near coords={}] 
+        coordinates {(-4, 2)};
+      \addplot[thick, mark=*, forget plot] 
+        coordinates {(-2, 2)};
+      \addplot[thick, forget plot]
+        coordinates {(-4, 2) (-2, 2)}
+        node[pos=0.2, above, black] {b};
+      \addplot[thick, mark=*, nodes near coords={}] 
+        coordinates {(2, 2)};
+      \addplot[thick, forget plot] 
+        coordinates {(4, 2)};
+      \addplot[thick, forget plot] 
+        coordinates {(2, 2) (4, 2)};
+    \end{axis}
+
+  \end{tikzpicture}
+  \caption{Svar på fråga 1.13}
+  \label{fig:1.13}
+\end{figure}
+
+
+\section*{1.26}
+   
+Rita grafen till funktionen:
+
+$$ f(x)  = \begin{cases}
+  x + 2 & {\text då\ } x \leq -1 \\
+  -x^2 + 2 &  {\text då\ }  -1 \le x \leq 1 \\
+  x - 1 & {\text då\ } x > 1
+\end{cases}
+$$
+
+Svar: grafen i Fig.\ref{fig:1.26}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[grid=major]
+      \addplot [domain=-4:-1, line width=1pt,-] {x + 2 };
+      \addplot [domain=-1:1, line width=1pt,-] {- x^2 + 2};
+      \addplot[only marks, mark=*, mark options={fill=black}] coordinates {(1,1)};
+      \addplot [domain=1:4, line width=1pt,-] {x-2};
+      \addplot[only marks, mark=o] coordinates {(1,-1)};
+pep
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Svar på uppgift 1.26}
+  \label{fig:1.26}
+\end{figure}
+
+
   
-  
-\end{section}
 
 \end{document}
+
+
