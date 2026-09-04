@@ -44,10 +44,10 @@
 
 \section*{Uppgift 1.7}
 
-Sätt $f(x) = x^2$. Rita kurvorna:
+Sätt $f(x) = x^2$. Rita kurvorna till funktionerna nedan.
 
 \begin{multicols}{2}
-  \begin{enumerate}[label=\alph*]
+  \begin{enumerate}[label=\alph*)]
   \item $y = f(x)$
   \item $y = f(x-1)$
   \item $y = f(x+1)$
@@ -56,29 +56,56 @@ Sätt $f(x) = x^2$. Rita kurvorna:
   \item $y = f(2x) $
   \item $y = 1/2 f(X) $
   \item $y = -f(x) $
-  \item $y = f(-x) $    
+  \item $y = f(-x) $
   \end{enumerate}
 \end{multicols}
 
-Svar: grafer i Fig.\ref{fig:1.7}
+\noindent Svar: Grafer i Fig.\ref{fig:1.7}. Vi ser att en funktion $f(x+a)$ är
+  en parallellförskjutning i sidled av funktionen $f(x)$. Detta gäller
+  oavsett vilken funktion vi vi har. På samma sätt kan vi förskjuta en
+  graf i höjdled genom att addera (eller subtrahera) en konstant,
+  $f(x)+a$.
+
+  Vi ser även att vi kan trycka ihop grafen genom att antingen
+  multiplicera argumentet med en konstant, $f(x*a)$, eller resultatet,
+  $f(x) + a$, av funktionen.
+
+  Slutligen kan vi spegelvända grafen genom att multiplicera antingen
+  argumentet (spegla i y-axeln) eller resultatet (spegla i x-axeln) med $-1$. 
+  
     
-\begin{figure}[]
+\begin{figure}[ht]
   \centering
   \hspace*{-3cm}
   \begin{subfigure}{.4\paperwidth}
     \begin{tikzpicture}
-      \begin{axis}[domain=-2:2, grid=major]
-        \addplot [line width=1pt,-] {x^2} node [pos=0.2,left] {$f(x)$};
-        \addplot [line width=1pt,-] {(x - 1)^2} node [pos=0.1,right] {$f(x-1)$};
-        \addplot [line width=1pt,-] {(x + 1)^2} node [pos=0.8,left] {$f(x+1)$};
+      \begin{axis}[
+          ymin = -4, ymax=4,
+          xmin = -4, xmax=4,          
+          ytick distance=1,
+          xtick distance=1,
+          domain=-4:4,
+          samples=100,
+          grid=both]
+        \addplot [line width=1pt,-] {x^2} node [pos=0.5,below, anchor=north] {$f(x)$};
+        \addplot [line width=1pt,-] {(x-1)^2} node [pos=0.75,right, anchor=west] {$f(x-1)$};
+        \addplot [line width=1pt,-] {(x+1)^2} node [pos=0.25,left, anchor=east] {$f(x+1)$};
       \end{axis}
     \end{tikzpicture}
   \end{subfigure}%
   \begin{subfigure}{.4\paperwidth}
     \begin{tikzpicture}
-      \begin{axis}[domain=-2:2, grid=major]
-        \addplot [line width=1pt,-] {x^2 - 1} node [pos=0.7,right] {$f(x) -1$};
-        \addplot [line width=1pt,-] {x^2 + 2} node [pos=0.7,left] {$f(x) + 2$};
+      \begin{axis}[
+          ymin = -4, ymax=4,
+          xmin = -4, xmax=4,          
+          ytick distance=1,
+          xtick distance=1,
+          domain=-4:4,
+          samples=100,
+          grid=both]
+        \addplot [line width=1pt,dashed] {x^2};
+        \addplot [line width=1pt,-] {x^2 - 1} node [pos=0.5,below] {$f(x)-1$};
+        \addplot [line width=1pt,-] {x^2 + 2} node [pos=0.5,below] {$f(x)+2$};
       \end{axis}
     \end{tikzpicture}
   \end{subfigure}
@@ -86,17 +113,33 @@ Svar: grafer i Fig.\ref{fig:1.7}
   \hspace*{-3cm}
   \begin{subfigure}{.4\paperwidth}
     \begin{tikzpicture}
-      \begin{axis}[domain=-2:2, grid=major]
-        \addplot [line width=1pt,-] {(2 * x)^2} node [pos=0.8,left]{$f(2x)$};
-        \addplot [line width=1pt,-] {1/2 * x^2} node [pos=0.0,above right] {$1/2 f(x)$};
+      \begin{axis}[
+          ymin = -4, ymax=4,
+          xmin = -4, xmax=4,          
+          ytick distance=1,
+          xtick distance=1,
+          domain=-4:4,
+          samples=100,
+          grid=both]
+        \addplot [line width=1pt,dashed] {x^2};
+        \addplot [line width=1pt,-] {(2*x)^2} node [pos=0.52,left] {$f(2x)$};
+        \addplot [line width=1pt,-] {0.5 * x^2} node [pos=0.4,left] {$1/2 f(x)$};
       \end{axis}
     \end{tikzpicture}
   \end{subfigure}%
   \begin{subfigure}{.4\paperwidth}
     \begin{tikzpicture}
-      \begin{axis}[domain=-2:2, grid=major]
-        \addplot [line width=1pt,-] {-(x)^2} node [pos=0.8,right] {$-f(x)$};
-        \addplot [line width=1pt,-] {(-x)^2} node [pos=0.2,right] {$f(-x)$};
+      \begin{axis}[
+          ymin = -4, ymax=4,
+          xmin = -4, xmax=4,          
+          ytick distance=1,
+          xtick distance=1,
+          domain=-4:4,
+          samples=100,
+          grid=both]
+        \addplot [line width=1pt,dashed] {x^2};
+        \addplot [line width=1pt,-] {-(x^2)} node [pos=0.6,left] {$- f(x)$};
+        \addplot [line width=1pt,-] {(-x)^2} node [pos=0.4,right] {$f(-x)$};
       \end{axis}
     \end{tikzpicture}
   \end{subfigure}
@@ -109,7 +152,7 @@ Svar: grafer i Fig.\ref{fig:1.7}
 Lös ekvationerna:
 
 \begin{itemize}
-\item[a)] $ |x| = 4 $  ger: $ x_1 = 4$, $x_2 = -4$
+\item[a)] $ |x| = 4 $  ger: $ x = \pm 4$
 \item[b)] $ |x| = 0 $  ger: $ x = 0$
 \item[c)] $ |x| = -1$  är falskt, absolutbeloppet är alltid positivt
 \item[f)] $ |1-x] = 1$ ger: $x_1 = 0$, $x_2 = 2$
@@ -120,13 +163,16 @@ Lös ekvationerna:
 Rita mängden av de tal för vilka:
 
 \begin{itemize}
-\item[b)] $|x| \geq 2$ ger: $x_1 \leq -2$, $x_2 \geq 2$
-\item[c)]  $|x-1| < 2$ ger $-1 < x < 3$
+\item[b)] $|x| \geq 2$ ger: $ x \in ]\infty,-1] \cup [2,\infty[$
+\item[c)]  $|x-1| < 2$ ger $ x \in ]-1,3[$
 \end{itemize}
 
-Svar: Uppritat i Fig.\ref{fig:1.13}
+Svar: Uppritat i Fig.\ref{fig:1.13}. När vi tar bort absolut
+beräkningen från ett uttryck $|x|$ så måste vi beakta att $x$ kan vara
+både positivt och negativt. När vi då har en olikhet så måste vi vända
+på olikheten. Om $|x| > 2$ så är antingen $x > 2$ eller $x < -2$.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -179,15 +225,15 @@ Svar: Uppritat i Fig.\ref{fig:1.13}
 Rita grafen till funktionen:
 
 $$ f(x)  = \begin{cases}
-  x + 2 & {\text då\ } x \leq -1 \\
-  -x^2 + 2 &  {\text då\ }  -1 \le x \leq 1 \\
-  x - 1 & {\text då\ } x > 1
+  x + 2 & \text{då\ } x \leq -1 \\
+  -x^2 + 2 &  \text{ då\ }  -1 \le x \leq 1 \\
+  x - 1 & \text{ då\ } x > 1
 \end{cases}
 $$
 
 Svar: grafen i Fig.\ref{fig:1.26}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \begin{axis}[grid=major]
