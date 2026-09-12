@@ -33,98 +33,73 @@
 \begin{document}
 
 \title{
-    \textbf{MM2001: Inläming 0}
+    \textbf{MM2001: Inläming 1}
 }
 \author{Johan Montelius}
 \date{HT 2026}
 
 \maketitle
 
+\section*{i)}
 
-
-\section*{i)  Persson-Böiers 1.6.1-2}
+Betrakta funktionen: $f(x) = -sin(3x) + cos(3x$).
+\begin{enumerate}[label=\alph*)]
+  \item Skriv om funktionen $f(x)$ på formen $A\, sin(kx + \delta)$.
+  \item Lös ekvationen  $f(x) = 1$.
+\end{enumerate}
 
 \subsection*{a)}
 
-Förenkla uttrycket:
+\noindent Vi kan använda oss av {\em hjälpvinkelmetoden}. Skriver vi funktionen
+på formen:
+$$ a\, sin(n) + b\, cos(n)$$ så kan vi skriva om den som:
+$$ \sigma\, sin(n + \delta) $$
+där $\sigma = \sqrt{a^2 + b^2}$ och $a/\sigma = cos(\delta)$.
 
-$$ \frac{\sqrt[3]{ a^6}}{(\sqrt[3]{\sqrt[4]{a^5}})^6} \times \sqrt{a}$$.
-
+\vspace{5pt} Givet funktionen $f(x)$ har vi att $a = -1$, $b = 1$ och
+$n = 3x$. Detta ger oss $\sigma = 1$ och $-1 = cos(\delta)$ vilket ger
+oss $\delta = \pi$. Vi har då:
 
 \begin{align*}
-  \frac{\sqrt[3]{ a^6}}{(\sqrt[3]{\sqrt[4]{a^5}})^6} \times \sqrt{a} 
-  &\;=\; \frac{(a^6)^{1/3}}{(((a^5)^{1/4})^{1/3})^6} \times a^{1/2} & \text{ ty\ } \sqrt[n]{a} = a^{1/n}\\
-  &\;=\; \frac{a^{6/3}}{a^{5\times {1/4} \times {1/3} \times 6}} \times a^{1/2} & \text{ ty\ } (a^n)^m = a^{n\times m}\\
-  &\;=\; \frac{a^{2} \times a^{1/2} }{a^{5 / 2}}  & \text{utför multiplikationerna och förenklar}\\
-  &\;=\; \frac{a^{5/2}}{a^{5/2}}  & \text{ty\ } a^n \times a^m = a^{n +  m} \\
-  &\;=\; 1  &  \\
+ f(x)  &=\; sin(3x + \pi) &\; \\
+       &=\; -sin(3x) &\; \text{ ty\ } sin(v) = -sin(v + \pi)\\
 \end{align*}
-  
+
 
 \subsection*{b)}
 
-Visa att $x = 9/4$ är en lösning till ekvationen:
-
-$$x^{x \sqrt{x}} = (x\sqrt{x})^x$$.
-
 \begin{align*}
-  (9/4)^{9/4 \sqrt{9/4}}   &\; =\;   (9/4\sqrt{9/4})^{9/4}  & \\
-  (9/4)^{9/4 \times 3/2}  &\; =\;   (9/4\times 3/2)^{9/4}  &\; \text{ ty\;} \sqrt{n/m} = \sqrt{n}/\sqrt{m}\\
-  (9/4)^{9/4 \times 3/2}  &\; =\;  (9/4)^{9/4} \times  (3/2)^{9/4}   &\; \text{ ty\ } (a \times b)^n = a^n \times b^n\\
-  (9/4)^{9/4 \times 1/2}  &\; =\;   (3/2)^{9/4}   &\; \text{ dividera med\ } (9/4)^{9/4}\\
-  ((9/4)^{1/2})^{9/4} &\; =\;   (3/2)^{9/4}   &\; \text{ ty\ } a^{n\times m} = (a^n)^m\\
-  (3/2)^{9/4} &\; =\;   (3/2)^{9/4}   &\; \text{ ty\ } (a/b)^n = a^n/b^n \\
-  \end{align*}
-
-\subsection*{ c)}
-
-Har du nu löst ekvation ovan?
-
-\vspace{10pt}
-
-\noindent Nej - jag har visat att den gäller för $x = 9/4$ men inte löst ut ett
-generellet uttryck som ger all värden för $x$. Det kan finnas andra
-lösningar. 
-
-Vi kan, genom att utföra mer eller mindre samma operationer, lösa ekvationen. 
-
-\begin{align*}
-  (x)^{x \sqrt{x}}   &\; =\;   (x\sqrt{x})^{x}  & \\
-  (x)^{x \times \sqrt{x}}  &\; =\;  (x)^{x} \times  (\sqrt{x})^{x}   &\; \text{ ty\ } (a \times b)^n = a^n \times b^n\\
-  (\sqrt{x})^{2 \times x \times \sqrt{x}} &\; =\;  (\sqrt{x})^{2\times x} \times (\sqrt{x})^{x}  & \text{skriv om\ } x \text{\ som\ } (\sqrt{x})^2  \\
-  (\sqrt{x})^{2 \times x \times \sqrt{x}} &\; =\;  (\sqrt{x})^{2\times x + x} & \text{ ty\ } a^n \times a^m = a^{n+m}\\
-  2 \times x \times \sqrt{x} &\; =\;  2\times x + x & \text{ ty\ } a^n = a^m \Rightarrow n = m \\
-  2 \times \sqrt{x} &\; =\; 3 & \text{ dividera med\ } x\\
-  \sqrt{x} &\; =\; 3/2 & \\
+  -sin(3x) + cos(3x) &=\;  1 &\\
+  -sin(3x) &=\; 1 &\; \text{enligt lösningen i a) ovan}\\
+  3x &=\; 3\pi/2 + 2\pi n &\\
+  x &=\; \pi/2 + (2/3)\pi n &\\
 \end{align*}
 
-\noindent Vi får då att vi ar en lösning för all värden på $x$ där $\sqrt{x} =
-3/2$. Detta ger naturligtvis att $9/4$ är en lösning men vi har även
-$-9/4$ som en lösning.
+\section*{ii)}
 
-\section*{ii) Persson-Böiers 1.6.1}
+Kolla hjälpvinkelmetoden och harmoniska svängningar i kursboken PB1
+(Persson-Böiers). Där finns begreppen amplitud och period.
 
-\subsection*{a)}
+\begin{enumerate}[label=\alph*]
+\item På vilken sida i boken har du hittat dessa?
+\item Ange både amplituden och perioden för funktionen $f$ i (i).
+\end{enumerate}
 
-Yttryck formelrad (27) med ord.
+\subsection*{a)}  Sindan 110.
 
-\vspace{10pt}
-
-\noindent  Givet att a är större än noll, att b är större än a och att $\alpha$
-är större än noll så gäller att b upphöjt till $\alpha$ är större än a
-upphöjt till $\alpha$.
+\subsection*{b)}  Amplituden = -1 och perioden = $2\pi / 3$
 
 
-\subsection*{b}
+\section*{iii)} Skissa (utan datorhjälp) grafen för funktionen $f$ i (i) utifrån grafen för funktionen $g(x) := sin 3x$.
 
-Vad händer i (27) om $\alpha \leq 0$?
+Svar i Fig \ref{fig:iii}. 
 
-\vspace{10pt}
-
-\noindent  Om $\alpha$ tillåts vara noll så är naturligtvis $a^\alpha = b^\alpha$
-eftersom vad som helst upphöjt till noll är ett.
-
-  
+\begin{figure}
+  \center
+  \includegraphics[scale=0.1]{sin-1.png}
+  \caption{Svar på fråga iii) - skissa grafen till f(x) utifrån g(x) = sin(3x).}
+  \label{fig:iii}
+\end{figure}
 
 \end{document}
 
