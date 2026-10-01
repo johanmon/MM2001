@@ -28,7 +28,7 @@
 \usepackage{multicol}
 
 \usepackage{amsmath}
-
+\usepackage{amsfonts}
 
 \begin{document}
 
@@ -42,7 +42,7 @@
 
 \section*{i)}
 
-Betrakta funktionen: $f(x) = -sin(3x) + cos(3x$).
+Betrakta funktionen: $f(x) = -sin(3x) + cos(3x)$.
 \begin{enumerate}[label=\alph*)]
   \item Skriv om funktionen $f(x)$ på formen $A\, sin(kx + \delta)$.
   \item Lös ekvationen  $f(x) = 1$.
@@ -50,30 +50,62 @@ Betrakta funktionen: $f(x) = -sin(3x) + cos(3x$).
 
 \subsection*{a)}
 
-\noindent Vi kan använda oss av {\em hjälpvinkelmetoden}. Skriver vi funktionen
+\noindent Vi kan använda oss av {\em hjälpvinkelmetoden}. Har vi en funktionen
 på formen:
 $$ a\, sin(n) + b\, cos(n)$$ så kan vi skriva om den som:
 $$ \sigma\, sin(n + \delta) $$
-där $\sigma = \sqrt{a^2 + b^2}$ och $a/\sigma = cos(\delta)$.
+där
+\begin{itemize}
+  \item $\sigma = \sqrt{a^2 + b^2}$,
+  \item $cos(\delta) = a/\sigma$ och
+  \item $sin(\delta) = b/\sigma$.
+\end{itemize}
 
-\vspace{5pt} Givet funktionen $f(x)$ har vi att $a = -1$, $b = 1$ och
-$n = 3x$. Detta ger oss $\sigma = 1$ och $-1 = cos(\delta)$ vilket ger
-oss $\delta = \pi$. Vi har då:
+\vspace{5pt}
 
-\begin{align*}
- f(x)  &=\; sin(3x + \pi) &\; \\
-       &=\; -sin(3x) &\; \text{ ty\ } sin(v) = -sin(v + \pi)\\
-\end{align*}
+Givet funktionen $f(x)$ har vi att $a = -1$, $b = 1$ och $n =
+3x$. Detta ger oss
+
+\begin{itemize}
+\item $\sigma = \sqrt{2}$,
+\item $cos(\delta) = -1/\sqrt{2}$ \ och
+\item $sin(\delta) = 1/\sqrt{2}$ \ vilket ger oss
+\item $\delta = 3\pi/4 $.
+\end{itemize}
+Vi har då:
+$$ f(x) = \sqrt{2} \; sin(3x + 3\pi/4) $$.
 
 
 \subsection*{b)}
 
+
 \begin{align*}
   -sin(3x) + cos(3x) &=\;  1 &\\
-  -sin(3x) &=\; 1 &\; \text{enligt lösningen i a) ovan}\\
-  3x &=\; 3\pi/2 + 2\pi n &\\
-  x &=\; \pi/2 + (2/3)\pi n &\\
+  \sqrt{2}\; sin(3x + 3\pi/4)  &=\; 1 &\;\text{enligt lösningen i a) ovan}\\
+  sin(3x + 3\pi/4)  &=\; 1/\sqrt{2} &\;  \\
 \end{align*}
+
+
+Värdet $1/sqrt{2}$ är en värdet för en enhetsvinkel. Givet att $sin(\alpha) =
+  1/sqrt(2)$ har vi att att $\alpha = \pi/4$ eller $3\pi/4$. Vi har då två fall:
+
+\begin{align*}  
+  3x_1 + 3\pi/4  &=\; \pi/4 + 2\pi n&\;  \text{enhetsvinkel I:a kvadranten}\\
+  3x_1 &=\; \pi/4 - 3\pi/4 + 2\pi n&\;  \text{för\  }n \in \mathbb{Z}\\
+  3x_1 &=\; -2\pi/4 + 2\pi n&\;   \\
+  3x_1 &=\; -\pi/2 + 2\pi n&\;   \\
+  x_1 &=\;  -\pi/6 + (2/3)\pi n&\;,   \\
+\end{align*}
+
+och
+\begin{align*}  
+  3x_2 + 3\pi/4  &=\; 3\pi/4 + 2\pi n&\; \text{enhetsvinkel II:a kvadranten} \\
+  3x_2 &=\;  2\pi n&\;  \text{för\  }n \in \mathbb{Z}\\
+  x_2 &=\;   (2/3)\pi n&\;.   \\
+\end{align*}
+
+
+
 
 \section*{ii)}
 
@@ -85,9 +117,9 @@ Kolla hjälpvinkelmetoden och harmoniska svängningar i kursboken PB1
 \item Ange både amplituden och perioden för funktionen $f$ i (i).
 \end{enumerate}
 
-\subsection*{a)}  Sindan 110.
+\subsection*{a)}  Sidan 110.
 
-\subsection*{b)}  Amplituden = -1 och perioden = $2\pi / 3$
+\subsection*{b)}  Amplituden = $\sqrt{2}$ och perioden = $2\pi/3$
 
 
 \section*{iii)} Skissa (utan datorhjälp) grafen för funktionen $f$ i (i) utifrån grafen för funktionen $g(x) := sin 3x$.

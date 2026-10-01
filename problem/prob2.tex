@@ -1,0 +1,72 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{tikz}
+
+\tikzset{
+  excl/.style = {circle, draw=black, inner sep=0pt, minimum size=4pt}
+}
+
+\tikzset{
+  incl/.style = {circle, draw=black, fill=black, inner sep=0pt, minimum size=4pt}
+}
+
+
+\usepackage{pgfplots}
+
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{enumitem}
+
+\usepackage{multicol}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\title{
+    \textbf{MM2001: Inläming 2}
+}
+\author{Johan Montelius}
+\date{HT 2026}
+
+\maketitle
+
+\section*{i)}
+
+Beräkna gränsvärdet
+$$lim_{x \rightarrow 0} \frac{e^x - e^{-x}}{sin x}$$
+med hjälp av metoderna du lär dig på kursen 1 (det betyder särskilt: utna l'Hospitals regel).
+
+\section*{ii}
+
+I (i) har du använt {\em räkneregler för gränsvärden.} Ange för varje steg i din beräkning vilken regle du använder. Du kan göra det antingen genom att ange respektive sats (samt formelnummer) i PB1 eller genom att skriva ner räkneregeln.
+
+\section*{iii}
+
+Betrakta $\frac{e^{2x} - \alpha + e^{-2x}}{sin x}$, där $\alpha$ är ett heltal.
+\begin{itemize}
+\item Ange ett värde på $\alpha$ sådant att $lim_{x \rightarrow 0}\frac{e^{2x} - \alpha + e^{-2x}}{sin x}$ existerar. 
+\item Ange ett värde på $\alpha$ sådant att $lim_{x \rightarrow 0}\frac{e^{2x} - \alpha + e^{-2x}}{sin x}$ inte existerar. 
+\end{itemize}
+
+
+
+\begin{align*}
+  -sin(3x) + cos(3x) &=\;  1 &\\
+  \sqrt{2}\; sin(3x + 3\pi/4)  &=\; 1 &\;\text{enligt lösningen i a) ovan}\\
+  sin(3x + 3\pi/4)  &=\; 1/\sqrt{2} &\;  \\
+\end{align*}
+
+
+\end{document}
+
+
