@@ -43,28 +43,104 @@
 \section*{i)}
 
 Beräkna gränsvärdet
-$$lim_{x \rightarrow 0} \frac{e^x - e^{-x}}{sin x}$$
-med hjälp av metoderna du lär dig på kursen 1 (det betyder särskilt: utna l'Hospitals regel).
+$$  \lim\limits_{x\to 0} \frac{e^x - e^{-x}}{sin(x)}$$
+med hjälp av metoderna du lär dig på kursen 1 (det betyder särskilt:
+utna l'Hospitals regel).
+
+\begin{align*}
+  \lim\limits_{x\to 0} \frac{e^x - e^{-x}}{sin(x)} &=\; 1 \\
+\end{align*}
+
+
 
 \section*{ii}
 
-I (i) har du använt {\em räkneregler för gränsvärden.} Ange för varje steg i din beräkning vilken regle du använder. Du kan göra det antingen genom att ange respektive sats (samt formelnummer) i PB1 eller genom att skriva ner räkneregeln.
+I (i) har du använt {\em räkneregler för gränsvärden.} Ange för varje
+steg i din beräkning vilken regle du använder. Du kan göra det
+antingen genom att ange respektive sats (samt formelnummer) i PB1
+eller genom att skriva ner räkneregeln.
+
+Det första vi gör är att förlänga uttrycket med $1/x$. Det ger oss:
+
+$$
+\lim\limits_{x\to 0}  \frac{e^x - e^{-x}}{sin(x)} =  \lim\limits_{x\to 0}  \frac{(e^x - e^{-x})/ x }{sin(x)/ x}.
+$$
+
+Detta ger oss $sin(x)/x$ i nämnaren vilket vi vet (PB 29 sid 161) har
+gränsvärdet 1 då $x \rightarrow 0$. Täljaren är fortfarande ett
+mysterium men vi kan skriva om uttrycket som följer:
+
+\begin{align*}
+  (e^x - e^{-x})/ x &=\; (e^x - 1 + 1 - e^{-x})/ x \\
+                   &=\; (e^x - 1)/x - (e^{-x} - 1)/ x \\
+\end{align*}
+
+Vi vet (PB 29 sid 161) att gränsvärdet för $(e^x - 1)/x$ är 1 då
+$x \rightarrow 0$. Gränsvärdet för den andra termen kräver lite arbete. Vi gör ett
+variabelbyte, $t = -x$, vilket ger att t går mot noll då x går mot noll. Vi kan då skriva:
+
+\begin{align*}
+    \lim\limits_{x\to 0}  (e^{-x} - 1)/ x &=\;  lim{t \rightarrow 0} (e^{t} - 1)/ -t \\
+                                        &=\;    \lim\limits_{x\to 0}  - (e^{t} - 1)/ t \\
+                                        &=\; -1.\\.
+\end{align*}
+
+Vi har då att täljarens båda termer går mot 1 dåhar gränsvärden då $x \rightarrow 0$. 
+Täljaren går mot 2 och nämnaren gick mot 1 så hela
+uttrycket går mot 2.
+
+\begin{align*}
+  \lim\limits_{x\to 0}  \frac{e^x - e^{-x}}{sin(x)} &=\;  \lim\limits_{x\to 0}  \frac{(e^x - e^{-x})/ x }{sin(x)/ x} \\
+                                                  &=\;  \lim\limits_{x\to 0}  \frac{(e^x - 1)/x - (e^{-x} -1)/ x}{sin(x)/ x} \\
+                                                  &=\; \frac{1 - (-1)}{1} \\
+  &=\; 2.
+\end{align*}
+
+
 
 \section*{iii}
 
-Betrakta $\frac{e^{2x} - \alpha + e^{-2x}}{sin x}$, där $\alpha$ är ett heltal.
+Betrakta $\frac{e^{2x} - \alpha + e^{-2x}}{sin(x)}$, där $\alpha$ är ett heltal.
 \begin{itemize}
-\item Ange ett värde på $\alpha$ sådant att $lim_{x \rightarrow 0}\frac{e^{2x} - \alpha + e^{-2x}}{sin x}$ existerar. 
-\item Ange ett värde på $\alpha$ sådant att $lim_{x \rightarrow 0}\frac{e^{2x} - \alpha + e^{-2x}}{sin x}$ inte existerar. 
+\item Ange ett värde på $\alpha$ sådant att $lim_{x \rightarrow 0}\frac{e^{2x} - \alpha + e^{-2x}}{sin(x)}$ existerar. 
+\item Ange ett värde på $\alpha$ sådant att $lim_{x \rightarrow 0}\frac{e^{2x} - \alpha + e^{-2x}}{sin(x)}$ inte existerar. 
 \end{itemize}
 
-
+Vi kan som exemple ta $\alpha = -2$ vilket ger oss möjlighet att
+skriva om $e^{2x} -2 + e^{-2x}$ till $(e^x - e^{-x})^2$. 
 
 \begin{align*}
-  -sin(3x) + cos(3x) &=\;  1 &\\
-  \sqrt{2}\; sin(3x + 3\pi/4)  &=\; 1 &\;\text{enligt lösningen i a) ovan}\\
-  sin(3x + 3\pi/4)  &=\; 1/\sqrt{2} &\;  \\
+  lim_{x \rightarrow 0}\frac{e^{2x} -2 + e^{-2x}}{sin(x)} 
+      &=\; \lim_{x \rightarrow 0}\frac{(e^x - e^{-x})^2}{sin(x)} \\
+      &=\; \lim_{x \rightarrow 0}\frac{e^x - e^{-x}}{sin(x)} \times (e^x - e^{-x}) \\
+      &=\; \lim_{x \rightarrow 0}\frac{e^x - e^{-x}}{sin(x)} \times \lim_{x \rightarrow 0}(e^x - e^{-x}) \\
+      &=\; 2 \times \lim_{x \rightarrow 0}(e^x - e^{-x}) &\; \text{från uppg. i}\\   
+      &=\; 2 \times (\lim_{x \rightarrow 0}e^x - \lim_{x \rightarrow 0}   e^{-x}) \\  
+      &=\; 2 \times (1 - 1) \\
+      &=\; 0
 \end{align*}
+
+Om vi istället sätter $\alpha = 0$ har vi en betydligt knepigare
+situation. Vi kan visserligen skriva om $e^{2x} + e^{-2x}$ till
+$(e^x - e^{-x})(e^x x e^{-x})$. Men detta ger oss följande dilemma:
+
+\begin{align*}
+  lim_{x \rightarrow 0}\frac{e^{2x} + e^{-2x}}{sin(x)} 
+      &=\; \lim_{x \rightarrow 0}\frac{(e^x - e^{-x})(e^x + e^{-x})}{sin(x)} \\
+      &=\; \lim_{x \rightarrow 0}\frac{(e^x - e^{-x})}{sin(x)} \times \lim_{x \rightarrow 0}(e^x + e^{-x}) \\
+      &=\; 2 \times \lim_{x \rightarrow 0}(e^x + e^{-x}) &\; \text{från uppg. i}.\\  
+\end{align*}
+
+Problemet här är att $e^x + e^{-x}$ inte har ett gränsvärde då
+$x \rightarrow 0$. Första termen går visserligen mot 1 men andra
+termen kommer gå mot $+\inf$ eller $+\inf$ beroende på om vi närmar
+oss noll från höger eller vänster. Funktionen är inte kontinuerlig och
+saknar gränsvärde då vi går mot noll.
+
+
+
+
+
 
 
 \end{document}
