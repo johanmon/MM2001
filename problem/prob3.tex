@@ -33,7 +33,7 @@
 \begin{document}
 
 \title{
-    \textbf{MM2001: Inläming 3}
+    \textbf{MM2001: Inlämning 3}
 }
 \author{Johan Montelius}
 \date{HT 2026}
@@ -41,11 +41,10 @@
 \maketitle
 
 \section*{i)}
+{\em
+Låt g vara funktionen $g(x) = x e^{-3/x}$ där $x \neq 0$
 
-Låt g vara funktionen $g(x) = x e^{−3/x}$ där $x \neq 0$
-
-\begin{itemize}
-  \begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=(\alph*)]
     
   \item Ange alla eventuella nollställen, lokala extrempunkter,
     asymptoter samt undersök funktionens beteende på randen av
@@ -55,42 +54,294 @@ Låt g vara funktionen $g(x) = x e^{−3/x}$ där $x \neq 0$
   \item Gör en kvalitativ skiss av grafen till funktionen. Motivera
     noggrant hur du har kommit fram till din skiss!
 \end{enumerate}
-
-Funtion $g(x)$ är lika ned noll omm: $x$ är lika med noll eller då
-$e^{-3/x}$ är lika med noll. Funktionen är dock inte definerad för $x = 0$ (eftersom $-3/0$ är odefinerat och uttrycket $e^t$ är alltid positivt. Detta ger att funktionen inte har några nollställen. 
-
-Tar vi derivatan av funktionen $g(x)$ får vi: $$ g'(x) = e^{-3/x} + x -3
+}
 
 \subsection*{(a)}
 
+Funktionen $g(x)$ är lika ned noll om: $x$ är lika med noll eller då
+$e^{-3/x}$ är lika med noll. Funktionen är dock inte definierad för $x
+= 0$ (eftersom $-3/0$ är odefinierat Detta ger att funktionen inte har
+några nollställen.
+
+Vi kan ta derivatan av $g(x)$ genom att sätta:
+
+
+\begin{align*}
+  g(x) &= x h(x) \; \text{där}\\
+  h(x) & = u(v(x)) \; \text{och}\\
+  v(x) &= -3/x \; \text{och}\\
+  u(x) &= e^x.\\
+\end{align*}
+
+Vi har då:
+\begin{align*}
+g'(x) &= h(x) + x h'(x) \; \text{produktregeln där}\\
+h'(x) &= u'(v(x)) v'(x) \; \text{kedjeregeln, och}\\
+v'(x) &= 3/x^2\; \text{och}\\
+u'(x) &= e^x.\\
+\end{align*}
+
+Detta ger oss:
+\begin{align*}
+  g'(x) & = h(x) + x h'(x)\\
+  & = u(v(x)) + x u'(v(x)) v'(x) \\
+  & = e^{-3/x} + x e^{-3/x}  \times 3/x^2 \\
+  & = e^{-3/x}(1 + 3/x) 
+\end{align*}
+
+
+Derivatan har ett nollställe då $x = -3$ och detta är det enda nollstället eftersom faktorn $e^{-3/x}$ är alltid större
+än noll. Tittar vi på andraderivatan:
+
+
+\begin{align*}
+  g''(x) &  = 3/x^2 e^{-3/x} (1 + 3/x) + e^{-3/x} \times -3/x^2 \; \text{produktregeln och kedjeregeln}\\
+  & = 3/x^2 e^{-3/x} + 9/x^3 e^{-3/x})  - 3/x^2 e^{-3/x}\\
+  & = e^{3/x} ( 3/x^2 +  9/x^3 - 3/x^2) \\
+  & = e^{-3/x} \times  9/x^3 .
+\end{align*}
+
+Andraderivatan i derivatans nollpunkt,
+\begin{align*}
+  g''(-3) & =  e^{-3/-3} \times 9/-3^3 \\
+  & = e \times -1/3 \\
+  & = - e/3,
+\end{align*}
+är negativ och vi har då en lokal maximipunkt i $x = -3$ med värde $g(-3) = -3 e^{-3/-3}$ som är lika med $ -3e$. 
+
+
+Vi kan nu undersöka hur funktionen beter sig när $x \rightarrow \pm
+\infty$. Vi börjar med $x \rightarrow \infty$ och gör det lättast med ett
+variabelbyte. Låt $[ t = 1/x, x = 1/t ]$ så har vi:
+
+\begin{align*}
+  \lim\limits_{x \to +\infty} g(x) &=  \lim\limits_{x \to +\infty} x e^{-3/x}\\
+  &= \lim\limits_{t \to 0^+}1/t \times 1/e^{3t} &&t \rightarrow 0^+ \text{\ då\ }  x \rightarrow +\infty\\
+  &= +\infty \times 1 &&\text{$1/t$ kommer att gå mot $+\infty$ eftersom  $1/t$ alltid är positivt}\\
+  &= +\infty \\
+\end{align*}
+
+När vi går mot $-\infty$ så har vi på samma sätt:
+\begin{align*}
+  \lim\limits_{x \to +\infty} g(x) &=  \lim\limits_{x \to +\infty} x e^{-3/x}\\
+  &=  \lim\limits_{t \to 0^-}1/t \times 1/e^{3t} &&t \rightarrow 0^- \; \text{då}\;  x \rightarrow -\infty\\
+  & = -\infty \times 1 &&\text{$1/t$ kommer att gå mot $-\infty$ eftersom  $1/t$ alltid är negativt}\\
+  & = -\infty 
+\end{align*}
+
+Notera att $1/e^{3/t}\rightarrow 1$ oavsett om $t$ går mot $+\infty$ eller
+$-\infty$. Detta eftersom $e^{3/t}$ i båda fall kommer närma sig $1$,
+dock från olika håll.
+
+Om $g(x)$ har någon asymptot så är det antingen sneda asymptoter då $x
+\rightarrow \pm\infty$ eller då $x = 0$ där funktionen inte är
+definierad Vi kan börja med att undersöka vad som händer då $x
+\rightarrow 0+$. Vi kan göra samma variabelbyte som förut, $[ t = 1/x, x = 1/t
+]$, och vi har då:
+
+
+\begin{align*}
+  \lim\limits_{x \to 0^+} g(x) &= \lim\limits_{x \to 0^+} x e^{-3/x} \\
+  &= \lim\limits_{t \to \infty} 1/t \times 1/e^{3t} \\
+  &= 0 \times 0 \\
+  &= 0
+\end{align*}
+
+Funktionen $g(x)$ är dock inte definierad för $x = 0$ vilket vi skall ha i åtanke när vi ritar grafen.
+
+Närmar vi oss noll från vänster är saker inte lika lätta. Vi kan prova
+med samma variabelsubstitution men vi måste nu låta $t \rightarrow
+-\infty$ eftersom $1/x$ kommer vara negativt då $x \rightarrow
+0^-$. Detta ger oss dock problem då $1/t$ visserligen går mot noll men:
+
+$$\lim\limits_{x \to -\infty} 1/e^{3t} = \lim\limits_{x \to \infty} e^{3t}.$$
+
+Detta ger oss naturligtvis att gränsvärdet går mot oändligheten vilket
+inte ger oss ett entydigt svar på gränsvärdet för $g(x)$. Vi får prova
+en annan strategi. Vi provar genom att sätta: $t = -3/x$ vilket ger $x
+= -3/t$. Då $x \rightarrow 0^-$ så kommer $t \rightarrow \infty$. Vi
+har då följande gränsvärde:
+\begin{align*}
+  \lim\limits_{x \to 0^-} g(x) &= \lim\limits_{x \to 0^-} x e^{-3/x} \\
+  &= \lim\limits_{t \to \infty} -3/t \times e^t \\
+  &= \lim\limits_{t \to \infty} -3 \times e^t/t \\
+  &= -3 \times \infty \\
+  &= -\infty
+\end{align*}
+
+Genom variabelsubstitutionen får vi faktorn $e^t/t$ som vi med säkehet
+kan säga går mot oändligheten eftersom $e^t$ växer betydligt snabbare
+än $t$.
+
+Frågan är nu om vi har någon sned asymptot och för att ta reda på det
+kan vi se vad derivatan, $g'(x)$ gå mot. Vi använder en variabelsubstitution och får:
+
+\begin{align*}
+  \lim\limits_{x \to \infty} g'(x) &= \lim\limits_{x \to \infty} e^{-3/x}(1 + 3/x) \\ 
+  &= \lim\limits_{t \to 0} e^{3t}(1 + 3t) [t = 1/x, x = 1/t]\\ 
+  &= \lim\limits_{t \to 0} 1 \times (1 + 3t) \\ 
+  &= \lim\limits_{t \to 0} 1. \\
+\end{align*}
+
+Ett alternativt sätt är, som presenterades i video 7:3, att undersöka
+gränsvärdet för $g(x)/x$. Även detta ger att riktingskoefficienten är
+ett:
+
+\begin{align*}
+  k &= \lim\limits_{x \to \infty} g(x)/x\\
+  &= \lim\limits_{x \to \infty} \frac{x e^{-3/x}}{x}\\
+  &= \lim\limits_{x \to \infty}  e^{-3/x}\\
+  &= \lim\limits_{x \to \infty}  e^{0}\\
+  &= 1\\  
+\end{align*}
+
+Vi har möjligtvis en eller två asymptoter, båda med riktningskoefficienten
+ett. Har vi asymptoter, $y = x + m$ så skall dessa uppfylla kravet att
+gränsvärdet för $g(x) - (x+m)$ går mot noll då $x \rightarrow
+\infty$. Vi försöker hitta $m$ så att detta gäller:
+
+\begin{align*}
+  m &= \lim\limits_{x \to \infty} g(x) - x\\
+  &=  \lim\limits_{x \to \infty} x e^{-3/x} - x \\
+  &=  \lim\limits_{t \to 0} -3/t \times e^{t} - -3/t &[t = -3/x, x = -3/t]\\
+  &=  \lim\limits_{t \to 0} -3 (\frac{e^{t}}{t} - \frac{1}{t})\\
+  &=  \lim\limits_{t \to 0} -3 (\frac{e^{t} - 1}{t})\\
+  &=  -3 \times 1   &\text{ standardgränsvärde}\\
+  &=  -3 \\
+\end{align*}
+
+Vi har alltså att $y = x -3$ är en sned asymptot till g(x) då x går
+mot oandligheten och detta gäller oavsett om vi går mot positiva eller
+negativa oändligheten.
+
+Vi kan göra följande sammanställning över hur funktionen $g(x)$ beter
+sig i det intressanta intervallet. 
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+{\bf x:} & $< -3$ & $-3$ & $-3$ < $x < 0$ & $0$ & $0 < x$ \\
+{\bf g(x)} & $-\infty$ & $-3 e$&$ -\infty$& - & $\infty$\\
+{\bf g'(x)} & $\nearrow$& 0 & $\searrow$& - & $\nearrow$\\
+\end{tabular}
+\end{center}
+
+Vi kan också notera följande egenskaper som kommer hjälp oss att rita
+upp grafen.
+
 \begin{itemize}
 \item Nollställen: funktionen har inga nollställen.
-\item Extrempunkter: $g'(x) = 
+\item Extrempunkter: lokalt maxima vid $x = -3$.
+\item Asymptot:  vertikal vid $x = 0$ 
+\item Asymptot:  sned $x -3$ 
 \end{itemize}
 
-
-
-
+\pagebreak
 \subsection*{(b)}
 
+Grafen ritas schematiskt upp genom att först dra den sneda asymptoten
+som vi har. Funktionen är odefinerad i $x = 0$ men har $0$ som
+gränsvärde då vi kommer från höger. För alla värden $x > 0$ kommer
+$g(x)$ ligga över asymptoten men närma sig denna ju högre $x$ vi
+väljer\footnote{Detta har vi inte visat, vi visar bara att den kommer
+går närmare asymtoten, $g(x)$ skulle kunna pendla ovanför och under
+asymptoten. Att den ligger över lämnas som övning till läsaren att
+visa}. Vi har ett lokalt maxima vid $-3$ och värdet $g(-3) = -3e$. När
+vi närmar oss $0^-$ skall $g(x)$ gå mot negativa oändligheten. Det
+skall den öven göra då vi går mot negativa oändligheten men då skall
+vi närma oss asymptoten.
 
 
+\begin{center}
+\includegraphics[scale=0.4]{prob3-ib.pdf}
+\end{center}
+
+\pagebreak
 \section*{(ii)}
 
-
-- Vad menas med att en funktion $h : D \rightarrow R$ är växande? (Dvs
+{\em - Vad menas med att en funktion $h : D \rightarrow R$ är växande? (Dvs
 frågan är alltså efter definitionen av begreppet växande)
 
 - Ange alla satser från boken PB1 som du har använt för att bestämma i
 vilka intervall funktionen g ovan är växande. Beskriv kort hur har du
 använt satserna!
 
+}
+
+
+\vspace{20pt}
+
+En funktion $f(x)$ är växande (i ett intevall $D_f$) om, och endast
+om, det för varje $i, j \in D_f$ gällar att om $i < j$ så är $f(i)
+\leq f(j)$.
+
+För att avgöra för vilka intervall som $g(x)$ är växande så delar vi
+först in dess definitionsmängd i intervaller $D_i$. Intervallerna skall vara
+sådana att:
+
+\begin{itemize}
+\item intervallet skall vara kontinuerligt, 
+\item funktionen skall vara definerad i hela intervallet och
+\item funktionen skall vara deriverbar i hela intervallet.
+\end{itemize}
+
+Om funktionens derivata $g'(x) > 0$ för alla $ x \in D_i$ så är
+funktionen strängt växande i intervallet [PB1, sats 16, sid 215]. Vi har
+även det svagare sambandet som säger att om $g'(x) \geq 0$ i
+intervallet så är funktionen {\em växande} (PB1 sid 216).
+ 
+Funktionen $g(x)$ är definerad över $]\infty, 0[ \cup ]0, \infty[$. Vi
+    kan därför undersöka de två delmängderna var för sig. Det vi nu
+    vill göra är att dela upp varje delintervall i ytterligare delar
+    där varje del antingen är växande eller avtagande i hela dess
+    intervall. jag tror att Jean Garbon Darboux kan hjälp oss här
+    [PB1, sats 17, sid 217] då han ger oss ledtråden att om en
+    funktion är deriverbar i ett intervall (vilket $g(x)$ är) och att
+    $f'(a) \neq 'f(b)$ för några värden i intervallet så, antar
+    $f'(x)$ varje värde mellan $f´(a)$ och $f´(b)$. Detta ger oss
+    följende korollarium:
+
+
+    
 
 \section*{(iii)}
 
-Lägg särskilt fokus på funktionens beteende i en omgivning av punkten
+{\em Lägg särskilt fokus på funktionens beteende i en omgivning av punkten
 $x = 0$. Har funktionen en (ensidig) derivata i $x = 0$ om vi sätter $g(0)
-= 0$? Hur återspeglas ditt svar i skissen av grafen?
+  = 0$? Hur återspeglas ditt svar i skissen av grafen?}
+
+Ja, funktionen har då en {\em högerderivata} eftersom vi kan närma oss
+punkten $x=0$ från höger och räkna ut gränsvärdet:
+
+\begin{align*}
+  \lim\limits_{h \rightarrow 0^+} \frac{g(h) - g(0)}{h} &= \lim\limits_{h \rightarrow 0^+} \frac{he^{-3/h} - 0}{h} \\
+  &= \lim\limits_{h \rightarrow 0^+} \frac{h e^{-3/h}}{h} \\
+  &= \lim\limits_{h \rightarrow 0^+} \frac{h e^{-3/h}}{h} \\  
+  &= 0
+\end{align*}
+
+Detta skulle vara i linje med vår intuition eftersom vi ser att grafen
+närmar sig $x = 0$ vågrät från höger.
+
+Vi skulle på samma sätt kunna räkna ut en vänsterderivata men skulle
+få ett gränsvärde på oändligheten eftersom:
+
+\begin{align*}
+  \lim\limits_{h \rightarrow 0^-} \frac{g(h) - g(0)}{h} &= \lim\limits_{h \rightarrow 0^-} \frac{he^{-3/h} - 0}{h} \\
+  &= \lim\limits_{h \rightarrow 0^-} \frac{h e^{-3/h}}{h} \\
+  &= \lim\limits_{h \rightarrow 0^-} \frac{h e^{-3/h}}{h} \\
+  &= \infty.
+\end{align*}
+
+Grafiskt så motsvar detta naturligtvis en lodrät asymptot men detta är
+inte ett giltigt värde på derivatan. Funktionen har ingen
+vänsterderivata i punkten $x = 0$ eftersom funktionen inte är
+kontinuerlig från höger i punkten.
+
+
+
+
+
+
 
 
 \end{document}
