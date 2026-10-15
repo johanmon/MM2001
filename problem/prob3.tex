@@ -30,6 +30,10 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
+
+\newtheorem{corollary}{Följdsats}
+
+
 \begin{document}
 
 \title{
@@ -58,18 +62,24 @@ Låt g vara funktionen $g(x) = x e^{-3/x}$ där $x \neq 0$
 
 \subsection*{(a)}
 
+\subsubsection*{nollställen}
+
 Funktionen $g(x)$ är lika ned noll om: $x$ är lika med noll eller då
-$e^{-3/x}$ är lika med noll. Funktionen är dock inte definierad för $x
-= 0$ (eftersom $-3/0$ är odefinierat Detta ger att funktionen inte har
-några nollställen.
+$e^{-3/x}$ är lika med noll. Funktionen är dock inte definierad för
+$x = 0$ (eftersom $-3/0$ är odefinierat). Uttrycket $e^-3/x$ är alltid
+större än noll och detta ger att funktionen inte har några
+nollställen.
 
-Vi kan ta derivatan av $g(x)$ genom att sätta:
+\subsubsection*{extrempunkter}
 
+För att undersöka om funktionen har några extrempunkter tar vi och
+tittar på dess derivata.  Vi kan ta derivatan av $g(x)$ genom att
+sätta:
 
 \begin{align*}
-  g(x) &= x h(x) \; \text{där}\\
-  h(x) & = u(v(x)) \; \text{och}\\
-  v(x) &= -3/x \; \text{och}\\
+  g(x) &= x h(x), \\
+  h(x) & = u(v(x)), \\
+  v(x) &= -3/x \;\text{och}\\
   u(x) &= e^x.\\
 \end{align*}
 
@@ -93,7 +103,6 @@ Detta ger oss:
 Derivatan har ett nollställe då $x = -3$ och detta är det enda nollstället eftersom faktorn $e^{-3/x}$ är alltid större
 än noll. Tittar vi på andraderivatan:
 
-
 \begin{align*}
   g''(x) &  = 3/x^2 e^{-3/x} (1 + 3/x) + e^{-3/x} \times -3/x^2 \; \text{produktregeln och kedjeregeln}\\
   & = 3/x^2 e^{-3/x} + 9/x^3 e^{-3/x})  - 3/x^2 e^{-3/x}\\
@@ -101,14 +110,19 @@ Derivatan har ett nollställe då $x = -3$ och detta är det enda nollstället e
   & = e^{-3/x} \times  9/x^3 .
 \end{align*}
 
-Andraderivatan i derivatans nollpunkt,
+så kan vi se att andraderivatan i derivatans nollpunkt,
 \begin{align*}
   g''(-3) & =  e^{-3/-3} \times 9/-3^3 \\
   & = e \times -1/3 \\
   & = - e/3,
 \end{align*}
-är negativ och vi har då en lokal maximipunkt i $x = -3$ med värde $g(-3) = -3 e^{-3/-3}$ som är lika med $ -3e$. 
+är negativ och vi har då en lokal maximipunkt i $x = -3$ med värde
+$g(-3) = -3 e^{-3/-3}$ som är lika med $ -3e$. Hade andraderivatan
+visat sig vara noll så hade vi haft ett problem och skulle vara
+tvungna att göra en analys av funktionens värde före och efter
+derivatans nollpunkt.
 
+\subsection*{oändligheten}
 
 Vi kan nu undersöka hur funktionen beter sig när $x \rightarrow \pm
 \infty$. Vi börjar med $x \rightarrow \infty$ och gör det lättast med ett
@@ -133,8 +147,10 @@ Notera att $1/e^{3/t}\rightarrow 1$ oavsett om $t$ går mot $+\infty$ eller
 $-\infty$. Detta eftersom $e^{3/t}$ i båda fall kommer närma sig $1$,
 dock från olika håll.
 
+\subsection*{asymptoter}
+
 Om $g(x)$ har någon asymptot så är det antingen sneda asymptoter då $x
-\rightarrow \pm\infty$ eller då $x = 0$ där funktionen inte är
+\rightarrow \pm\infty$ eller då $x \rightarrow 0$ där funktionen inte är
 definierad Vi kan börja med att undersöka vad som händer då $x
 \rightarrow 0+$. Vi kan göra samma variabelbyte som förut, $[ t = 1/x, x = 1/t
 ]$, och vi har då:
@@ -147,7 +163,8 @@ definierad Vi kan börja med att undersöka vad som händer då $x
   &= 0
 \end{align*}
 
-Funktionen $g(x)$ är dock inte definierad för $x = 0$ vilket vi skall ha i åtanke när vi ritar grafen.
+Funktionen $g(x)$ är dock inte definierad för $x = 0$ vilket vi skall
+ha i åtanke när vi ritar grafen.
 
 Närmar vi oss noll från vänster är saker inte lika lätta. Vi kan prova
 med samma variabelsubstitution men vi måste nu låta $t \rightarrow
@@ -169,12 +186,15 @@ har då följande gränsvärde:
   &= -\infty
 \end{align*}
 
-Genom variabelsubstitutionen får vi faktorn $e^t/t$ som vi med säkehet
+Genom variabelsubstitutionen får vi faktorn $e^t/t$ som vi med säkerhet
 kan säga går mot oändligheten eftersom $e^t$ växer betydligt snabbare
 än $t$.
 
+\subsection*{sneda asymptoter}
+
 Frågan är nu om vi har någon sned asymptot och för att ta reda på det
-kan vi se vad derivatan, $g'(x)$ gå mot. Vi använder en variabelsubstitution och får:
+kan vi se vad derivatan, $g'(x)$ gå mot. Vi använder en
+variabelsubstitution och får:
 
 \begin{align*}
   \lim\limits_{x \to \infty} g'(x) &= \lim\limits_{x \to \infty} e^{-3/x}(1 + 3/x) \\ 
@@ -184,7 +204,7 @@ kan vi se vad derivatan, $g'(x)$ gå mot. Vi använder en variabelsubstitution o
 \end{align*}
 
 Ett alternativt sätt är, som presenterades i video 7:3, att undersöka
-gränsvärdet för $g(x)/x$. Även detta ger att riktingskoefficienten är
+gränsvärdet för $g(x)/x$. Även detta ger att riktningskoefficienten är
 ett:
 
 \begin{align*}
@@ -211,11 +231,14 @@ gränsvärdet för $g(x) - (x+m)$ går mot noll då $x \rightarrow
 \end{align*}
 
 Vi har alltså att $y = x -3$ är en sned asymptot till g(x) då x går
-mot oandligheten och detta gäller oavsett om vi går mot positiva eller
+mot oändligheten och detta gäller oavsett om vi går mot positiva eller
 negativa oändligheten.
 
-Vi kan göra följande sammanställning över hur funktionen $g(x)$ beter
-sig i det intressanta intervallet. 
+\subsection*{sammanställning}
+  
+Då vi har funktionen och dess derivata, och vet att de kritiska värdena
+är $-3$ och noll så kan vi göra följande tabell över hur funktionen
+beter sig.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -225,29 +248,38 @@ sig i det intressanta intervallet.
 \end{tabular}
 \end{center}
 
-Vi kan också notera följande egenskaper som kommer hjälp oss att rita
-upp grafen.
+För att bestämma andraderivatan används lämpliga värden i det
+intervall som skall undersökas. Vi vet redan att derivatan är positiv
+när vi går mot $\pm\infty$ och att den är noll då $x = -3$. Kvar att
+undersöka är då intervallet $]-3,0[$ vilket vi iofs vet kommer vara
+negativt då andraderivatan var negativ. Vi skulle dock enkelt kunna
+konstater detta genom att beräkna $g`(-1)$ som är lika med
+$e^{3}(1-3)$ som naturligtvis alltid är negativt.
+
+Vi har då följande sammanställning.
 
 \begin{itemize}
 \item Nollställen: funktionen har inga nollställen.
 \item Extrempunkter: lokalt maxima vid $x = -3$.
 \item Asymptot:  vertikal vid $x = 0$ 
 \item Asymptot:  sned $x -3$ 
+\item Växande: i intervallet $]-\infty,-3]$ och $]0,\infty]$
+\item Avtagande: i intervallet $[3,0[$
 \end{itemize}
 
 \pagebreak
 \subsection*{(b)}
 
 Grafen ritas schematiskt upp genom att först dra den sneda asymptoten
-som vi har. Funktionen är odefinerad i $x = 0$ men har $0$ som
+som vi har. Funktionen är odefinierad i $x = 0$ men har $0$ som
 gränsvärde då vi kommer från höger. För alla värden $x > 0$ kommer
 $g(x)$ ligga över asymptoten men närma sig denna ju högre $x$ vi
 väljer\footnote{Detta har vi inte visat, vi visar bara att den kommer
-går närmare asymtoten, $g(x)$ skulle kunna pendla ovanför och under
+går närmare asymptoten, $g(x)$ skulle kunna pendla ovanför och under
 asymptoten. Att den ligger över lämnas som övning till läsaren att
 visa}. Vi har ett lokalt maxima vid $-3$ och värdet $g(-3) = -3e$. När
 vi närmar oss $0^-$ skall $g(x)$ gå mot negativa oändligheten. Det
-skall den öven göra då vi går mot negativa oändligheten men då skall
+skall den även göra då vi går mot negativa oändligheten men då skall
 vi närma oss asymptoten.
 
 
@@ -267,39 +299,57 @@ använt satserna!
 
 }
 
-
-\vspace{20pt}
+\subsection*{växande}
 
 En funktion $f(x)$ är växande (i ett intevall $D_f$) om, och endast
-om, det för varje $i, j \in D_f$ gällar att om $i < j$ så är $f(i)
+om, det för varje $i, j \in D_f$ gäller att om $i < j$ så är $f(i)
 \leq f(j)$.
 
-För att avgöra för vilka intervall som $g(x)$ är växande så delar vi
-först in dess definitionsmängd i intervaller $D_i$. Intervallerna skall vara
-sådana att:
 
-\begin{itemize}
-\item intervallet skall vara kontinuerligt, 
-\item funktionen skall vara definerad i hela intervallet och
-\item funktionen skall vara deriverbar i hela intervallet.
-\end{itemize}
+\subsection*{vilka intervall}
 
 Om funktionens derivata $g'(x) > 0$ för alla $ x \in D_i$ så är
 funktionen strängt växande i intervallet [PB1, sats 16, sid 215]. Vi har
 även det svagare sambandet som säger att om $g'(x) \geq 0$ i
 intervallet så är funktionen {\em växande} (PB1 sid 216).
- 
-Funktionen $g(x)$ är definerad över $]\infty, 0[ \cup ]0, \infty[$. Vi
-    kan därför undersöka de två delmängderna var för sig. Det vi nu
-    vill göra är att dela upp varje delintervall i ytterligare delar
-    där varje del antingen är växande eller avtagande i hela dess
-    intervall. jag tror att Jean Garbon Darboux kan hjälp oss här
-    [PB1, sats 17, sid 217] då han ger oss ledtråden att om en
-    funktion är deriverbar i ett intervall (vilket $g(x)$ är) och att
-    $f'(a) \neq 'f(b)$ för några värden i intervallet så, antar
-    $f'(x)$ varje värde mellan $f´(a)$ och $f´(b)$. Detta ger oss
-    följende korollarium:
 
+För att avgöra för vilka intervall som $g(x)$ är växande så delar vi
+först in dess definitionsmängd i intervaller. Intervallerna
+skall vara sådana att:
+
+\begin{itemize}
+\item intervallet skall vara kontinuerligt, 
+\item funktionen skall vara definierad i hela intervallet och
+\item funktionen skall vara deriverbar i hela intervallet.
+\end{itemize}
+ 
+Funktionen $g(x)$ är definierad över $]\infty, 0[ \cup ]0, \infty[$. Vi
+kan därför undersöka de två delmängderna var för sig.
+
+
+Vi vill dock först dela upp dessa intervall i ytterligare delar där
+varje del antingen är växande eller avtagande. jag tror att Jean
+Garbon Darboux kan hjälp oss här [PB1, sats 17, sid 217] då han ger
+oss ledtråden att om en funktion är deriverbar i ett intervall (vilket
+$g(x)$ är i de två intervall vi har) och att $f'(a) \neq 'f(b)$ för
+några värden i intervallet så, antar $f'(x)$ varje värde mellan
+$f´(a)$ och $f´(b)$. Detta ger oss följende korollarium:
+
+\begin{corollary}
+  Om en funktion $f(x)$ är deriverbar i ett intervall och vi har för
+  två värden, $a < b$, i intervallet att $f'(a)$ och $f'(b)$ har
+  skilda teckenför så måste det finnas ett värde $a < x < b$ för
+  vilket $f'(x) = 0$.
+\end{corollary}
+
+Det betyder att om vi kan dela upp våra delmängder i segment där
+derivatan inte är noll för något värde i segmenten, så kan vi betrakta
+dessa segment var och en för sig. De segmenten vi då har att arbeta
+med är: $]-\infty, 3[$, $]3,0[$ och $]0,\infty[$.
+
+Från att ha varit tvungna att visa att derivatan är positiv för varje
+värde i ett intervall så räcker det nu med att visa att den är antingen
+positiv eller negativ för något värde i intervallet.
 
     
 
@@ -309,6 +359,8 @@ Funktionen $g(x)$ är definerad över $]\infty, 0[ \cup ]0, \infty[$. Vi
 $x = 0$. Har funktionen en (ensidig) derivata i $x = 0$ om vi sätter $g(0)
   = 0$? Hur återspeglas ditt svar i skissen av grafen?}
 
+\subsection*{har vi en derivata}
+
 Ja, funktionen har då en {\em högerderivata} eftersom vi kan närma oss
 punkten $x=0$ från höger och räkna ut gränsvärdet:
 
@@ -316,29 +368,33 @@ punkten $x=0$ från höger och räkna ut gränsvärdet:
   \lim\limits_{h \rightarrow 0^+} \frac{g(h) - g(0)}{h} &= \lim\limits_{h \rightarrow 0^+} \frac{he^{-3/h} - 0}{h} \\
   &= \lim\limits_{h \rightarrow 0^+} \frac{h e^{-3/h}}{h} \\
   &= \lim\limits_{h \rightarrow 0^+} e^{-3/h}\\
+  &= \lim\limits_{t \rightarrow \infty} e^{-t} & [t = 3/h, h = 3/t] \\
+  &= \lim\limits_{t \rightarrow \infty} \frac{1}{e^t} & \text{standard gränsvärde}\\
   &= 0
 \end{align*}
 
-Detta skulle vara i linje med vår intuition eftersom vi ser att grafen
-närmar sig $x = 0$ vågrät från höger.
+Detta är linje med vår intuition eftersom vi ser att grafen närmar sig
+$x = 0$ vågrät från höger. Vi skulle kunna dra en vågrät linje $y = 0$
+i grafen men det skulle naturligtvis inte synas speciellt bra.
 
-Vi skulle på samma sätt kunna räkna ut en vänsterderivata men skulle
-få ett gränsvärde på oändligheten eftersom:
+Vi skulle på samma sätt kunna räkna ut en vänsterderivata men får då
+ett gränsvärde på oändligheten eftersom:
 
 \begin{align*}
   \lim\limits_{h \rightarrow 0^-} \frac{g(h) - g(0)}{h} &= \lim\limits_{h \rightarrow 0^-} \frac{he^{-3/h} - 0}{h} \\
-  &= \infty.
+  &= \lim\limits_{h \rightarrow 0^-} \frac{h e^{-3/h}}{h} \\
+  &= \lim\limits_{h \rightarrow 0^-} e^{-3/h}\\ 
+  &= \lim\limits_{t \rightarrow -\infty} e^{-t} & [t = 3/h, h = 3/t] \\
+  &= \lim\limits_{t \rightarrow \infty} e^{t} &\text{standardgränsvärde}\\
+  &= \infty.\\
 \end{align*}
 
-Grafiskt så motsvar detta naturligtvis en lodrät asymptot men detta är
-inte ett giltigt värde på derivatan. Funktionen har ingen
-vänsterderivata i punkten $x = 0$ eftersom funktionen inte är
-kontinuerlig från höger i punkten.
-
-
-
-
-
+Notera att det är samma uträkning men med den skillnaden att vi måste
+låta $t \rightarrow -\infty$ eftersom $1/h$ alltid kommer vara
+negativt då $h\rightarrow 0^-$. Grafiskt så motsvar detta naturligtvis
+en lodrät asymptot men detta är inte ett giltigt värde på
+derivatan. Funktionen har ingen vänsterderivata i punkten $x = 0$
+eftersom funktionen inte är kontinuerlig från höger i punkten.
 
 
 
