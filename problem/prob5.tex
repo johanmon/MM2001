@@ -1,0 +1,162 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{tikz}
+
+\tikzset{
+  excl/.style = {circle, draw=black, inner sep=0pt, minimum size=4pt}
+}
+
+\tikzset{
+  incl/.style = {circle, draw=black, fill=black, inner sep=0pt, minimum size=4pt}
+}
+
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{enumitem}
+
+\usepackage{multicol}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\title{
+    \textbf{MM2001: Inlämning 5}
+}
+\author{Johan Montelius}
+\date{HT 2026}
+
+\maketitle
+
+
+\section*{(i)}
+
+För varje reellt tal a, bestäm antalet lösningar till följande linjära ekvationssystem:
+
+$$
+\begin{cases}
+(4 + a)x_1 + 2x_2 - x_3 = 1 \\
+2x_1 + (1 + a)x_2 - 2x_3 = 2 \\
+-x_1 + 2x_2 + (4 + a)x_3 = 1 \\
+\end{cases}
+$$
+
+Vibörjar med att lösa ut $x_3$ ur den första ekvationen:
+
+\begin{align*}
+  (4 + a)x_1 + 2x_2 - x_3 &= 1 \\  
+   x_3 &= (4 + a)x_1 + 2x_2 - 1.\\  
+\end{align*}
+
+Sen substituerar vi $x_3$ i den andra ekvationen och löser ut $x_2$:
+
+\begin{align*}
+2x_1 + (1 + a)x_2 - 2x_3 &= 2 \\
+2x_1 + (1 + a)x_2 - 2((4 + a)x_1 + 2x_2 - 1) &= 2\\
+2x_1 + x_2 + ax_2 + 8x_1 + 2ax_1 + 4x_2 - 2 &= 2 \\
+10x_1 + (5 + 3a)x_2 &= 4.\\
+x_2 &= \frac{4 - 10x_1}{5 + 3a}
+\end{align*}
+
+Titt sist subsituerar vi $x_3$ och $x_2$ i den tredje ekvationen och löser ut $a$:
+
+
+
+\begin{align*}
+  -x_1 + 2x_2 + (4 + a)x_3 &= 1 \\
+  -x_1 + 2\frac{4 - 10x_1}{5 + 3a} + (4+a)((4 + a)x_1 + 2x_2 - 1) &= 1\\
+  -x_1 + \frac{8 - 20x_1}{5 + 3a} + (4+a)^2 x_1 + (8 + 2a)x_2 - (4+a) &= 1\\
+  -x_1 + \frac{8 - 20x_1}{5 + 3a} + (4+a)^2 x_1 + (8 + 2a)(\frac{4 - 10 x_1}{5 + 3a}) - (4+a) &= 1
+\end{align*}
+
+
+\section*{(ii)}
+
+{\em Hur många lösningar kan ett linjärt ekvationssystem ha? Ange även för vart och ett av
+fallen ett (enkelt!) exempel på ett ekvationssystem med fyra variabler (om exemplet
+inte är enkelt, behövs en motivering för vilket fall det tillhör). }
+
+Ett ekvationssystem har: inga, en unik eller oändligt med lösningar.
+Ett exemple på ett ekvationssystem utan lösningar är:
+
+$$
+\begin{cases}
+x_1 + 2x_2 +3x_3 + 4x_4= 50 \\
+3x_3 + 4x_4 = 37 \\
+3x_3 = 3 \\
+4x_4 = 4\\
+\end{cases}
+$$
+
+Den tredje och fjärde ekvationen ger att $x_3$ och $x_4$ är lika med
+$1$ men detta motsägs av den andra ekvationen. Ett exempel då vi har
+en unik lösning är:
+
+
+$$
+\begin{cases}
+x_1 + 2x_2 +3x_3 + 4x_4= 50\\
+3x_3 + 4x_4 = 37 \\
+3x_3 = 3 \\
+2x_2 + 4x_4 = 30\\
+\end{cases}
+$$
+
+Vi har att $x_3$ är givet (1) vilket då medför att $x_4$ är känt (9)
+och det i sin tur ger värdet på $x_2$ (3). Den första ekvationen ger
+slutligen ett unikt värde på $x_1$ (1).
+
+Ett system med oändligt med lösningar måste lämna en variabel fri. Vi
+kan ta samma ekvationssystem men utelämna en av de fyra ekvationerna. Utelämnar vi sen första:
+
+$$
+\begin{cases}
+3x_3 + 4x_4 = 37 \\
+3x_3 = 3 \\
+2x_2 + 4x_4 = 30\\
+\end{cases}
+$$
+
+så kan $x_1$ anta ett godtyckligt värde. Övriga variabler är dock
+bundna så ett lite mer intressant exempel är att utelämna den tredje
+ekvationen:
+
+$$
+\begin{cases}
+x_1 + 2x_2 +3x_3 + 4x_4= 50\\
+3x_3 + 4x_4 = 37 \\
+2x_2 + 4x_4 = 30.\\
+\end{cases}
+$$
+
+Nu är $x_3$ fri och övriaga är beroende av dess värde. 
+
+
+
+\section*{(iii)}
+
+{\em Hur många lösningar kan ett linjärt ekvationssystem av 5 ekvationer i 6 variabler ha?}
+
+Inga eller oändligt - vi kan redan med två ekvationer ha en
+motsägelse. Vi kan däremot inte fixera en unik lösning om vi bara har
+fem ekvationer. Fem variabler kommer vara bestömda eller bestämda
+givet den sjätte variabeln. Denna variabel kan väljas fritt och vi har
+då oäandligt med lösningar.
+
+
+\end{document}
+
+
