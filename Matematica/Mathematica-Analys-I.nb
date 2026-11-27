@@ -1,0 +1,963 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     41304,        955]
+NotebookOptionsPosition[     37205,        888]
+NotebookOutlinePosition[     37606,        904]
+CellTagsIndexPosition[     37563,        901]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Analys med Mathematica", "Title",
+ CellChangeTimes->{{3.904373071591951*^9, 3.9043731054733562`*^9}, {
+  3.904881172470171*^9, 
+  3.904881174123925*^9}},ExpressionUUID->"95a0e28e-eca8-4d94-bf36-\
+11636955eed9"],
+
+Cell["\<\
+I denna notebook jobbar vi med att unders\[ODoubleDot]ka funktioner och att \
+rita grafer.\
+\>", "Text",
+ CellChangeTimes->{{3.904881693201462*^9, 3.9048817427803164`*^9}, {
+  3.904882510204208*^9, 
+  3.904882533074835*^9}},ExpressionUUID->"94c58e21-6159-4771-82ec-\
+f7565e02f031"],
+
+Cell[CellGroupData[{
+
+Cell["1. Invers till en funktion", "Section",
+ CellChangeTimes->{{3.904882533940013*^9, 
+  3.904882550966592*^9}},ExpressionUUID->"e3dc4f19-62d2-4d60-b830-\
+71d45bf927ef"],
+
+Cell["L\[ARing]t oss unders\[ODoubleDot]ka f(x)=x+sin(x) p\[ARing] \
+intervallet [0,\[Pi]/2].", "Text",
+ CellChangeTimes->{{3.904881693201462*^9, 3.9048817427803164`*^9}, {
+  3.904882510204208*^9, 3.904882533074835*^9}, {3.904882575739767*^9, 
+  3.9048826084028254`*^9}},ExpressionUUID->"ba30e9ed-0978-418f-ac8f-\
+87c6fd3356c3"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], ":=", 
+   RowBox[{"x", "+", 
+    RowBox[{"Sin", "[", "x", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"f", "[", "x", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", 
+     RowBox[{"Pi", "/", "2"}]}], "}"}], ",", 
+   RowBox[{"AspectRatio", "->", "Automatic"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.904882638137514*^9, 3.904882646646385*^9}, {
+   3.9048826796762037`*^9, 3.904882695912245*^9}, 3.904882894749052*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"8adecbd4-e396-45f8-9ad1-3487e4114808"],
+
+Cell["\<\
+Funktionen \[ADoubleDot]r v\[ADoubleDot]xande p\[ARing] detta intervall, s\
+\[ARing] den har en invers. Vi kan numeriskt skapa en lista med punkter, \
+(x,f(x)) som ligger p\[ARing] grafen.
+Vi kan sedan plotta dessa punkter, och ser att de bildar samma kurva som \
+plotten ovan.\
+\>", "Text",
+ CellChangeTimes->{{3.904881693201462*^9, 3.9048817427803164`*^9}, {
+  3.904882510204208*^9, 3.904882533074835*^9}, {3.904882575739767*^9, 
+  3.9048826084028254`*^9}, {3.904882657388308*^9, 3.90488267192347*^9}, {
+  3.9048827120942507`*^9, 3.9048827419242783`*^9}, {3.904882907250772*^9, 
+  3.904882937687828*^9}},ExpressionUUID->"b044299f-ba81-4ef9-8870-\
+1c1622997fe4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Detta", " ", "skapar", " ", "en", " ", "lista", " ", "med", " ", 
+     "punkter"}], ",", " ", 
+    RowBox[{"d\[ADoubleDot]r", " ", 
+     RowBox[{"vi", " ", "'"}], 
+     RowBox[{"samplar", "'"}], " ", "funktionen", " ", "p\[ARing]", " ", 
+     "intervall", " ", "med", " ", "l\[ADoubleDot]ngden", " ", 
+     RowBox[{"0.001", ".", " ", "Det"}], " ", "\[ADoubleDot]r", " ", "lite", 
+     " ", "drygt", " ", "1500", " ", 
+     RowBox[{"punkter", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"fPoints", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"f", "[", "x", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", 
+         RowBox[{"Pi", "/", "2"}], ",", "0.001"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"fGraph", "=", 
+    RowBox[{"ListPlot", "[", 
+     RowBox[{"fPoints", ",", 
+      RowBox[{"AspectRatio", "->", "Automatic"}]}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.9048827434560328`*^9, 3.904882874052486*^9}, {
+  3.904882953868438*^9, 
+  3.904882990239551*^9}},ExpressionUUID->"d08ddb8f-e1bd-4bc1-9060-\
+760117b18b3d"],
+
+Cell[TextData[{
+ "Den inversen till ",
+ "f(x)",
+ StyleBox[" ",
+  FontSlant->"Italic"],
+ "skickar f(x) p\[ARing] x, s\[ARing] vi kan approximera denna genom att byta \
+plats p\[ARing] x och y-koordinaterna."
+}], "Text",
+ CellChangeTimes->{{3.904881693201462*^9, 3.9048817427803164`*^9}, {
+  3.904882510204208*^9, 3.904882533074835*^9}, {3.904882575739767*^9, 
+  3.9048826084028254`*^9}, {3.904882657388308*^9, 3.90488267192347*^9}, {
+  3.9048827120942507`*^9, 3.9048827419242783`*^9}, {3.904882907250772*^9, 
+  3.904882937687828*^9}, {3.904883003848536*^9, 3.904883051804302*^9}, {
+  3.904883085466652*^9, 
+  3.904883109047217*^9}},ExpressionUUID->"1bbc38b8-dac3-4456-88bc-\
+ca7be2c9e58b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fInvPoints", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"f", "[", "x", "]"}], ",", "x"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", 
+       RowBox[{"Pi", "/", "2"}], ",", "0.001"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"fInvGraph", "=", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"fInvPoints", ",", 
+    RowBox[{"AspectRatio", "->", "Automatic"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.904883065692829*^9, 3.9048830769610653`*^9}, 
+   3.9048831113538923`*^9},
+ CellLabel->"In[20]:=",ExpressionUUID->"1aaa32ce-3f81-460e-85e5-8d0c286caeec"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Rita", " ", "punkt"}], "-", 
+     RowBox[{"approximationen", " ", "f\[ODoubleDot]r", " ", "f"}]}], ",", 
+    " ", 
+    RowBox[{"samt", " ", "dess", " ", 
+     RowBox[{"invers", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Show", "[", 
+   RowBox[{"fGraph", ",", "fInvGraph", ",", 
+    RowBox[{"PlotRange", "->", "All"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9048831202666817`*^9, 
+  3.904883153659295*^9}},ExpressionUUID->"27efac24-8b29-4738-a981-\
+dee1a1b0692c"],
+
+Cell[TextData[{
+ "Vi kan nu slutligen g\[ODoubleDot]ra om listan med punkter till en ",
+ StyleBox["interpolerad funktion",
+  FontSlant->"Italic"],
+ ",\ndvs. en funktion som \[ADoubleDot]r en anpassning till punkterna. Vi kan \
+sedan anv\[ADoubleDot]nda detta som en vanlig funktion, definierad p\[ARing] \
+intervallet [0,1+Pi/2]."
+}], "Text",
+ CellChangeTimes->{{3.904881693201462*^9, 3.9048817427803164`*^9}, {
+  3.904882510204208*^9, 3.904882533074835*^9}, {3.904882575739767*^9, 
+  3.9048826084028254`*^9}, {3.904882657388308*^9, 3.90488267192347*^9}, {
+  3.9048827120942507`*^9, 3.9048827419242783`*^9}, {3.904882907250772*^9, 
+  3.904882937687828*^9}, {3.904883003848536*^9, 3.904883051804302*^9}, {
+  3.904883085466652*^9, 3.904883109047217*^9}, {3.9048831808162613`*^9, 
+  3.9048832220365543`*^9}, {3.904883342810122*^9, 
+  3.9048833730558147`*^9}},ExpressionUUID->"1058c9b3-2077-4ccc-9487-\
+57e85c2cd5f8"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fInv", "=", 
+   RowBox[{"Interpolation", "[", "fInvPoints", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"fInv", "[", "0.5", "]"}]}], "Input",
+ CellChangeTimes->{{3.904883225385827*^9, 3.904883337755411*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"29948a6a-efd1-4926-b67d-3acff5324fd8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Det", " ", "g\[ARing]r", " ", "att", " ", "numeriskt", " ", "integrera", 
+    " ", "den", " ", "inversa", " ", "funktionen"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{"fInv", "[", "x", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "0", ",", "0.5"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.904883384212215*^9, 
+  3.904883424163251*^9}},ExpressionUUID->"f202a6a0-a69d-454e-9cf3-\
+9b3cd443233d"],
+
+Cell[TextData[{
+ "Sammans\[ADoubleDot]ttningen av en funktion och dess invers ska ju bli ",
+ StyleBox["x",
+  FontSlant->"Italic"],
+ ", och detta kan vi kontrollera genom att plotta \
+sammans\[ADoubleDot]ttningen:"
+}], "Text",
+ CellChangeTimes->{{3.904883460987259*^9, 
+  3.9048834934062853`*^9}},ExpressionUUID->"7f350c0b-4cb1-460e-9d8f-\
+78d364b0cdde"],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"fInv", "[", "x", "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", 
+     RowBox[{
+      RowBox[{"Pi", "/", "2"}], "+", "1"}]}], "}"}], ",", 
+   RowBox[{"AspectRatio", "->", "Automatic"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.904883427243599*^9, 3.9048834515653*^9}, 
+   3.905239308859563*^9},ExpressionUUID->"b4604f73-37ac-4a5d-9907-\
+0d5834159b5c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2. Extrempunkter till en funktion", "Section",
+ CellChangeTimes->{{3.904882533940013*^9, 3.904882550966592*^9}, {
+  3.9048835110088167`*^9, 
+  3.904883514360017*^9}},ExpressionUUID->"7fc7acad-1b98-4a83-ad98-\
+01d72cb5f324"],
+
+Cell["\<\
+Genom att plotta en funktion, kan vi enkelt hitta extrempunkterna. Man kan \
+\[ADoubleDot]ndra intervallet d\[ADoubleDot]r funktionen plottas, f\
+\[ODoubleDot]r att se det lokala beteendet.\
+\>", "Text",
+ CellChangeTimes->{{3.904883543790638*^9, 3.904883566540951*^9}, {
+  3.904883642209202*^9, 
+  3.904883662075696*^9}},ExpressionUUID->"26e253d3-961a-4642-b79e-\
+a3f9b9a90326"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "f", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], ":=", 
+   RowBox[{"2.1", "+", 
+    RowBox[{"1.5", "x"}], "-", 
+    RowBox[{"1.23", " ", 
+     RowBox[{"x", "^", "2"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"x", "^", "3"}], ")"}], "/", "3"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"f", "[", "x", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "4"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"f", "[", "x", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "1.1", ",", "1.6"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.904883567519943*^9, 3.9048836338950872`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"9a6ff27a-2411-4ac3-9f6e-652681764338"],
+
+Cell["\<\
+I detta fall kan man derivera funktionen och se var derivatan \[ADoubleDot]r \
+noll, men f\[ODoubleDot]r mer komplicerade funktioner kan man inte hitta alla \
+nollst\[ADoubleDot]llen till derivatan.\
+\>", "Text",
+ CellChangeTimes->{{3.904883543790638*^9, 3.904883566540951*^9}, {
+  3.904883642209202*^9, 3.904883662075696*^9}, {3.905239335505042*^9, 
+  3.905239391899397*^9}},ExpressionUUID->"8909ab68-885c-4146-a808-\
+02d135424c77"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3. L\[ODoubleDot]sning av ekvationer numeriskt", "Section",
+ CellChangeTimes->{{3.904882533940013*^9, 3.904882550966592*^9}, {
+  3.9048835110088167`*^9, 3.904883514360017*^9}, {3.905239448304631*^9, 
+  3.9052394575629387`*^9}},ExpressionUUID->"8e9a31de-81cf-46c8-9745-\
+3ddf41c64e9e"],
+
+Cell[TextData[{
+ "L\[ARing]t oss f\[ODoubleDot]rs\[ODoubleDot]ka hitta alla \
+r\[ODoubleDot]tter till derivatan till funktionen ",
+ StyleBox["w(x)", "InlineFormula"],
+ " nedan p\[ARing] intervallet ",
+ StyleBox["[0,\[Pi]/2]", "InlineFormula"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.904883543790638*^9, 3.904883566540951*^9}, {
+  3.904883642209202*^9, 3.904883662075696*^9}, {3.905239519475842*^9, 
+  3.9052395736659813`*^9}, {3.905239681186803*^9, 
+  3.90523970742109*^9}},ExpressionUUID->"4809d1d6-f7d2-4236-8131-\
+26e979347b59"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"w", "[", "x_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"2", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"Sin", "[", "x", "]"}], ")"}], "^", "2"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"5", "/", "2"}], ")"}], " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"x", "/", "2"}], "]"}], ")"}], "^", "2"}]}]}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Vi", " ", "ritar", " ", "funktionen", " ", "samt", " ", "dess", " ", 
+    RowBox[{"derivata", ".", " ", "Man"}], " ", "kan", " ", "specificera", 
+    " ", "stilen", " ", "p\[ARing]", " ", "graferna", " ", "med", " ", 
+    "PlotStyle"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"w", "[", "x", "]"}], ",", 
+     RowBox[{
+      RowBox[{"w", "'"}], "[", "x", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", 
+     RowBox[{"Pi", "/", "2"}]}], "}"}], ",", 
+   RowBox[{"PlotStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Black"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Dashed", ",", "Orange"}], "}"}]}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.905239568551289*^9, 3.905239686176526*^9}, 
+   3.906192040060528*^9},ExpressionUUID->"841fe43c-774d-4f6c-9a6e-\
+a65a71418f0e"],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    TagBox[
+     {GrayLevel[0], Thickness[Large], Opacity[1.], LineBox[CompressedData["
+1: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
+WdY=
+       "]]},
+     Annotation[#, "Charting`Private`Tag$3936#1"]& ], 
+    TagBox[
+     {RGBColor[1, 0.5, 0], Thickness[Large], Opacity[1.], 
+      Dashing[{Small, Small}], LineBox[CompressedData["
+1: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
+qVJvxwN9yUjeRRrBmze0tum3Q1u0447EeXJemRBxkjnYDrdlBkY9vjRqvBId
+/VLasWRFlpuyC+nnaInxUxntSKt9enzmYRqXnocl+Dxqh0l515MuBqlnr0/V
+8ZftmK03+vupI417x3asPVzSDtnioR4lBxrurhP/WLa1w5FlOPbYiqxfh4PP
+1VU7EGDYFO29kcbBc3Wmy5d2wLf1yQ8lQxp5iWYcNfUOFPxytq3SJ8//Xien
+sqYDW2tChRXIeeer7dxL8zd3gCMaJ/OInIfuWxbZijA68KdbQMp7OQ297apT
+TckdiB/uufBIgtQ/tSriY3oH3lterl46l8aqaR/p7IcdMN/R7Jo8h4Zq3ofl
+IdkdSCsrPhsjRmP2Mpc96sUdyCj7T+uACI2mmVlZvqwO1P4wr00Z4eFC+co9
+cxd1Itj1pFx7Iw+V2/SyNt3thLFjpqRNCg9nPgatOv+gEzJ9Bps2POBhuWlp
+7vu0TnRX7TmheJ+HsJ27izc87UTUzA1fmm7zsHWPS/3awk6I+zrdNI7hocgx
+5t8VrE6w3h62yT/PQ965Ti/JJV0kX+Jphf08pGff1mt73IUcea/Q3tk8uI/v
+V//1vAszcy5QwaI8aG9Tkq/O6UJ6ulik5D88vPuVMvHmbRep+39PVgrx8G36
+MTPmUxf4jKWw5PdD0Lxwm1F3F7ImJPO3cfpxoKvN8oF6N6z+1YngFPRj3mJN
+94MPuzGsKOg5xehHreCsi3Lv/sDSf2iN2cI+vJp1MqOmsgdWxuv0TPV6oDlP
+wp1R1osnK73GLLZ0oy9qWEbnRx/EF5e/ONrVgcXh4Von3PuhOXnygUoYF237
+Guo3t/cjQrPSPnmaDRPq2+grTx6WbGoKjZdoxRkfFzfZHh4cAtKdj+8m3zWv
+75jJkj7NLTmRIZzxHb0T7gHCwzQcVZyy7xtUI/nnhVzPkwPo3yfSfYsqwpib
+oaP/+AAExLM235aJguJkzH7vs4OoCQ7clbX6DZO7/WrVLJEh2H2/FmVU8Jn5
+YelnKF0dQuS7uQaW/j+Y7rMyRFREh9Fl2KHGWNXMzHuwxPBDzDCMfiWmnbNm
+M6v1DcqsJEdwOGhi7yHrdibf/c4ex6gRBJkLju817mZWWCTZzJHl477PhdSy
+6D4mQ88gMzOej+G+1On5FTzm0Z7/hhpv8KGusVFR4CuP6ZV8aKvUbT4gUCjc
+8ZvHPC96qTXgHh/lEu+X53XzmHd/V8pbZfDhnd3MtJpLM3/4742eyOMj/GLD
+1SBbmmlW4ONv2cDHUHwvO5VDMy09RSrCmvjYZ2ZQc6mHZtqp3pB918LH0d9t
+J5yHaeaRK29ylnL4uNkQUa4ya4AZsk+gd/wPH4pch8JEjQFm4dg1RsYUH5qh
+ZkaBPgPMsmeLshsERsETt5GyOzfA/MzInpYQHsUOCfrqmpABZkNV3d1z/4wi
+ZWq1LzdhgMlPlP9pITGKNs8+abM3A8xp86dqYVKjEIvLkVUtGWDOFMaptzKj
+WGCf+W60aoApc4whuVRuFB5nPfoyGweY8osGD+2XH8Xh1dTZIGqAqfot9Fm0
+4ijeGzVmWPcOMNXD50+WLRpF0IF0H/WRAeZq/Yc7xlVG4agb3zQ9PcD8Px6+
+mk8=
+       "]]},
+     Annotation[#, "Charting`Private`Tag$3936#2"]& ]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->
+   NCache[{{0, Rational[1, 2] Pi}, {-1.2499998717717276`, 
+     3.445312425784759}}, {{0, 1.5707963267948966`}, {-1.2499998717717276`, 
+     3.445312425784759}}],
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.905320445546928*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"a038d394-0a30-4caa-ad70-180472a3a015"]
+}, Open  ]],
+
+Cell[TextData[{
+ "P\[ARing] figuren ser vi att n\[ADoubleDot]r x \[ADoubleDot]r \
+n\[ADoubleDot]ra 1.2, s\[ARing] har derivatan ett nollst\[ADoubleDot]lle. \
+Kommandot ",
+ StyleBox["FindRoot", "Input"],
+ " kan d\[ARing] anv\[ADoubleDot]ndas,\[LineSeparator]f\[ODoubleDot]r att utg\
+\[ARing] ifr\[ARing]n 1.2 och leta efter en rot i n\[ADoubleDot]rheten av \
+detta v\[ADoubleDot]rde f\[ODoubleDot]r x."
+}], "Text",
+ CellChangeTimes->{{3.904883543790638*^9, 3.904883566540951*^9}, {
+  3.904883642209202*^9, 3.904883662075696*^9}, {3.905239519475842*^9, 
+  3.9052395736659813`*^9}, {3.905239681186803*^9, 3.905239804926321*^9}, {
+  3.905239837340577*^9, 
+  3.9052398486760693`*^9}},ExpressionUUID->"72ea955a-0f9a-4f20-8681-\
+354ce8563f95"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindRoot", "[", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"w", "'"}], "[", "x", "]"}], "==", "0"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "1.2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.905239812032933*^9, 3.905239868709962*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"660ff4d4-5a0f-46e9-9dcf-2afc5bfb4729"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"x", "\[Rule]", "1.2529726228670157`"}], "}"}]], "Output",
+ CellChangeTimes->{3.905239881703915*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"355fe1b0-858b-45f4-8944-f72e9da87b40"]
+}, Open  ]],
+
+Cell[TextData[{
+ "S\[ADoubleDot]tt in detta v\[ADoubleDot]rde i ",
+ StyleBox["w\[CloseCurlyQuote](x), och verifiera att detta \[ADoubleDot]r n\
+\[ADoubleDot]ra 0.", "InlineFormula"]
+}], "Text",
+ CellChangeTimes->{{3.904883543790638*^9, 3.904883566540951*^9}, {
+  3.904883642209202*^9, 3.904883662075696*^9}, {3.905239519475842*^9, 
+  3.9052395736659813`*^9}, {3.905239681186803*^9, 3.905239804926321*^9}, {
+  3.905239837340577*^9, 3.9052398486760693`*^9}, {3.905239901560697*^9, 
+  3.905239923054257*^9}},ExpressionUUID->"17fd1404-768f-44d0-844d-\
+b9152ae2afd3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["4. En dynamisk tangent", "Section",
+ CellChangeTimes->{{3.904882533940013*^9, 3.904882550966592*^9}, {
+  3.904888623370873*^9, 3.904888631600934*^9}, {3.90488929195129*^9, 
+  3.904889299030675*^9}, {3.904889781455222*^9, 3.904889804911365*^9}, {
+  3.904890476861681*^9, 3.904890477720066*^9}, {3.905320834053993*^9, 
+  3.90532083487199*^9}},ExpressionUUID->"766bdd34-68ce-4978-93e5-\
+3a06a47dbac9"],
+
+Cell["\<\
+L\[ARing]t oss rita tangenten till en funktion h(x), f\[ODoubleDot]r ett v\
+\[ADoubleDot]rde p\[ARing] x=a, d\[ADoubleDot]r vi kan variera a.
+Tangenten \[ADoubleDot]r ju en funktion i x, men vi f\[ARing]r ju en tangent \
+genom (a,f(a)) f\[ODoubleDot]r varje v\[ADoubleDot]rde p\[ARing] parametern a.\
+\>", "Text",
+ CellChangeTimes->{{3.9048898089009523`*^9, 3.9048898176301947`*^9}, {
+   3.9048899086108437`*^9, 3.904889987394699*^9}, {3.904890083162139*^9, 
+   3.904890129666918*^9}, {3.904890233451621*^9, 3.904890244191143*^9}, 
+   3.905320828931938*^9},ExpressionUUID->"11523cfa-52a4-417d-936b-\
+4dcea3214c9a"],
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"h", "[", "x_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{"Sin", "[", "x", "]"}], "+", 
+      RowBox[{"0.3", "*", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"3", "x"}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"tangent", "[", 
+      RowBox[{"a_", ",", "x_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"h", "[", "a", "]"}], "+", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"h", "'"}], "[", "a", "]"}], 
+       RowBox[{"(", 
+        RowBox[{"x", "-", "a"}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Plotta", " ", "funktionen", " ", "samt", " ", "tangenten", " ", "vid", 
+      " ", "x"}], "=", "2.3"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"h", "[", "x", "]"}], ",", 
+       RowBox[{"tangent", "[", 
+        RowBox[{"2.3", ",", "x"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "6"}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.9048899671932793`*^9, 3.904890029050755*^9}, {
+  3.9048901323225393`*^9, 
+  3.904890171341408*^9}},ExpressionUUID->"4d9c150e-cdb6-44fb-b513-\
+dd5188bf727d"],
+
+Cell[TextData[{
+ "Man kan skapa interaktiva bilder ocks\[ARing], d\[ADoubleDot]r bilden \
+uppdateras d\[ARing] en parameter \[ADoubleDot]ndras . Vi \
+anv\[ADoubleDot]nder kommandot ",
+ StyleBox["Manipulate", "Input"],
+ " f\[ODoubleDot]r  detta \[ADoubleDot]ndam\[ARing]l.  "
+}], "Text",
+ CellChangeTimes->{
+  3.904890184604993*^9, {3.904890248214284*^9, 
+   3.9048903008163967`*^9}},ExpressionUUID->"83bef6a9-c135-4eed-bc5e-\
+ec11c930d1dd"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"h", "[", "x", "]"}], ",", 
+       RowBox[{"tangent", "[", 
+        RowBox[{"a", ",", "x"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "6"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}]}]}], "}"}]}], 
+    "]"}], "\[IndentingNewLine]", ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "0", ",", "6"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.904890280038006*^9, 3.904890280708517*^9}, {
+   3.9048903108379993`*^9, 3.904890351994903*^9}, 
+   3.904890450570703*^9},ExpressionUUID->"72657a2e-7500-4ce2-ae2f-\
+28d0d1787b7f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["5. Integraler", "Section",
+ CellChangeTimes->{{3.904882533940013*^9, 3.904882550966592*^9}, {
+   3.9048835110088167`*^9, 3.904883514360017*^9}, {3.905239448304631*^9, 
+   3.9052394575629387`*^9}, {3.905240094703545*^9, 3.905240098817992*^9}, {
+   3.90524071851276*^9, 3.905240719735052*^9}, 
+   3.905320837844617*^9},ExpressionUUID->"6c0594fc-8165-4ba7-9dfc-\
+f532868c15a6"],
+
+Cell[TextData[{
+ "Vi kan enkelt hitta primitiva funktioner i Mathematica, med \
+hj\[ADoubleDot]lp av ",
+ StyleBox["Integrate", "Input"],
+ ".\[LineSeparator]Definita integraler, p\[ARing] ett intervall kan ocks\
+\[ARing] ber\[ADoubleDot]knas. Vill vi integrera p\[ARing] ett \
+o\[ADoubleDot]ndligt intervall, anv\[ADoubleDot]nds ",
+ StyleBox["Infinity", "Input"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.904883543790638*^9, 3.904883566540951*^9}, {
+  3.904883642209202*^9, 3.904883662075696*^9}, {3.905239519475842*^9, 
+  3.9052395736659813`*^9}, {3.905239681186803*^9, 3.905239804926321*^9}, {
+  3.905239837340577*^9, 3.9052398486760693`*^9}, {3.90524010569963*^9, 
+  3.905240232413258*^9}},ExpressionUUID->"d5be2fd0-07ac-4f14-8e0c-\
+acf8fc56c5d7"],
+
+Cell[BoxData[{
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   RowBox[{"1", "/", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", "1"}], ")"}], "^", "2"}]}], ",", "x"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   RowBox[{"1", "/", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", "1"}], ")"}], "^", "2"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "Infinity"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.905240118147621*^9, 3.905240135753099*^9}, {
+   3.905240180062022*^9, 3.90524018604144*^9}, 
+   3.905240284519553*^9},ExpressionUUID->"c98b9b61-e36f-49fa-b400-\
+8db0cee6cf5b"],
+
+Cell[TextData[{
+ "Vissa funktioner har inte en primitiv funktion som kan uttryckas med \
+element\[ADoubleDot]ra funktioner, och Mathematica g\[ODoubleDot]r ingen f\
+\[ODoubleDot]renkling.\[LineSeparator]Man kan d\[ARing] ist\[ADoubleDot]llet \
+f\[ODoubleDot]rs\[ODoubleDot]ka med numerisk integration, d\[ADoubleDot]r ett \
+approximativt v\[ADoubleDot]rde ber\[ADoubleDot]knas. Numerisk integration \
+(som bara fungerar p\[ARing] ett intervall) g\[ODoubleDot]rs medhj\
+\[ADoubleDot]lp av ",
+ StyleBox["NIntegrate", "Input"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.904883543790638*^9, 3.904883566540951*^9}, {
+  3.904883642209202*^9, 3.904883662075696*^9}, {3.905239519475842*^9, 
+  3.9052395736659813`*^9}, {3.905239681186803*^9, 3.905239804926321*^9}, {
+  3.905239837340577*^9, 3.9052398486760693`*^9}, {3.90524010569963*^9, 
+  3.905240232413258*^9}, {3.905240286842312*^9, 3.905240311061823*^9}, {
+  3.905240349653874*^9, 
+  3.905240450290213*^9}},ExpressionUUID->"fac4a397-6772-4ab0-8e65-\
+29ed35cb00a7"],
+
+Cell[BoxData[{
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   RowBox[{"Sin", "[", 
+    RowBox[{"Cos", "[", 
+     RowBox[{"x", "^", "3"}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"NIntegrate", "[", 
+  RowBox[{
+   RowBox[{"Sin", "[", 
+    RowBox[{"Cos", "[", 
+     RowBox[{"x", "^", "3"}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.905240312943411*^9, 3.90524034660995*^9}, {
+  3.905240392227488*^9, 3.905240425514359*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"7ef98f88-58d8-44f1-b98c-97ed4dded0e6"],
+
+Cell[TextData[{
+ "Man kan l\[ADoubleDot]gga till extra antaganden d\[ARing] man integrerar, \
+med hj\[ADoubleDot]lp av ",
+ StyleBox["Assumptions", "Input"],
+ ". Till exempel kanske man vill att vissa parametrar \[ADoubleDot]r positiva \
+eller att de \[ADoubleDot]r heltal. L\[ADoubleDot]s exemplen i \
+dokumentationen."
+}], "Text",
+ CellChangeTimes->{{3.904883543790638*^9, 3.904883566540951*^9}, {
+  3.904883642209202*^9, 3.904883662075696*^9}, {3.905239519475842*^9, 
+  3.9052395736659813`*^9}, {3.905239681186803*^9, 3.905239804926321*^9}, {
+  3.905239837340577*^9, 3.9052398486760693`*^9}, {3.90524010569963*^9, 
+  3.905240232413258*^9}, {3.905240599866428*^9, 
+  3.905240669981544*^9}},ExpressionUUID->"e1db3654-46ed-4fe3-88a1-\
+9458eb058aa5"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{984., 578.25},
+WindowMargins->{{Automatic, 200.25}, {89.25, Automatic}},
+FrontEndVersion->"13.1 for Linux x86 (64-bit) (June 16, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"dbfbd5dd-475a-4783-a6f4-d2a81e42c5da"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 216, 4, 98, "Title",ExpressionUUID->"95a0e28e-eca8-4d94-bf36-11636955eed9"],
+Cell[799, 28, 291, 7, 35, "Text",ExpressionUUID->"94c58e21-6159-4771-82ec-f7565e02f031"],
+Cell[CellGroupData[{
+Cell[1115, 39, 171, 3, 68, "Section",ExpressionUUID->"e3dc4f19-62d2-4d60-b830-71d45bf927ef"],
+Cell[1289, 44, 328, 5, 35, "Text",ExpressionUUID->"ba30e9ed-0978-418f-ac8f-87c6fd3356c3"],
+Cell[1620, 51, 624, 15, 52, "Input",ExpressionUUID->"8adecbd4-e396-45f8-9ad1-3487e4114808"],
+Cell[2247, 68, 673, 12, 58, "Text",ExpressionUUID->"b044299f-ba81-4ef9-8870-1c1622997fe4"],
+Cell[2923, 82, 1263, 33, 96, "Input",ExpressionUUID->"d08ddb8f-e1bd-4bc1-9060-760117b18b3d"],
+Cell[4189, 117, 688, 15, 35, "Text",ExpressionUUID->"1bbc38b8-dac3-4456-88bc-ca7be2c9e58b"],
+Cell[4880, 134, 676, 18, 52, "Input",ExpressionUUID->"1aaa32ce-3f81-460e-85e5-8d0c286caeec"],
+Cell[5559, 154, 567, 15, 52, "Input",ExpressionUUID->"27efac24-8b29-4738-a981-dee1a1b0692c"],
+Cell[6129, 171, 913, 16, 81, "Text",ExpressionUUID->"1058c9b3-2077-4ccc-9487-57e85c2cd5f8"],
+Cell[7045, 189, 330, 7, 51, "Input",ExpressionUUID->"29948a6a-efd1-4926-b67d-3acff5324fd8"],
+Cell[7378, 198, 526, 14, 52, "Input",ExpressionUUID->"f202a6a0-a69d-454e-9cf3-9b3cd443233d"],
+Cell[7907, 214, 353, 9, 35, "Text",ExpressionUUID->"7f350c0b-4cb1-460e-9d8f-78d364b0cdde"],
+Cell[8263, 225, 455, 12, 32, "Input",ExpressionUUID->"b4604f73-37ac-4a5d-9907-0d5834159b5c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8755, 242, 229, 4, 68, "Section",ExpressionUUID->"7fc7acad-1b98-4a83-ad98-01d72cb5f324"],
+Cell[8987, 248, 388, 8, 58, "Text",ExpressionUUID->"26e253d3-961a-4642-b79e-a3f9b9a90326"],
+Cell[9378, 258, 871, 26, 93, "Input",ExpressionUUID->"9a6ff27a-2411-4ac3-9f6e-652681764338"],
+Cell[10252, 286, 443, 8, 58, "Text",ExpressionUUID->"8909ab68-885c-4146-a808-02d135424c77"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10732, 299, 290, 4, 68, "Section",ExpressionUUID->"8e9a31de-81cf-46c8-9745-3ddf41c64e9e"],
+Cell[11025, 305, 531, 12, 36, "Text",ExpressionUUID->"4809d1d6-f7d2-4236-8131-26e979347b59"],
+Cell[CellGroupData[{
+Cell[11581, 321, 1462, 44, 75, "Input",ExpressionUUID->"841fe43c-774d-4f6c-9a6e-a65a71418f0e"],
+Cell[13046, 367, 13990, 252, 235, "Output",ExpressionUUID->"a038d394-0a30-4caa-ad70-180472a3a015"]
+}, Open  ]],
+Cell[27051, 622, 736, 14, 58, "Text",ExpressionUUID->"72ea955a-0f9a-4f20-8681-354ce8563f95"],
+Cell[CellGroupData[{
+Cell[27812, 640, 361, 9, 33, "Input",ExpressionUUID->"660ff4d4-5a0f-46e9-9dcf-2afc5bfb4729"],
+Cell[28176, 651, 218, 4, 33, "Output",ExpressionUUID->"355fe1b0-858b-45f4-8944-f72e9da87b40"]
+}, Open  ]],
+Cell[28409, 658, 562, 10, 36, "Text",ExpressionUUID->"17fd1404-768f-44d0-844d-b9152ae2afd3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29008, 673, 404, 6, 68, "Section",ExpressionUUID->"766bdd34-68ce-4978-93e5-3a06a47dbac9"],
+Cell[29415, 681, 624, 10, 58, "Text",ExpressionUUID->"11523cfa-52a4-417d-936b-4dcea3214c9a"],
+Cell[30042, 693, 1322, 40, 117, "Input",ExpressionUUID->"4d9c150e-cdb6-44fb-b513-dd5188bf727d"],
+Cell[31367, 735, 440, 10, 58, "Text",ExpressionUUID->"83bef6a9-c135-4eed-bc5e-ec11c930d1dd"],
+Cell[31810, 747, 1041, 29, 71, "Input",ExpressionUUID->"72657a2e-7500-4ce2-ae2f-28d0d1787b7f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32888, 781, 380, 6, 68, "Section",ExpressionUUID->"6c0594fc-8165-4ba7-9dfc-f532868c15a6"],
+Cell[33271, 789, 747, 15, 58, "Text",ExpressionUUID->"d5be2fd0-07ac-4f14-8e0c-acf8fc56c5d7"],
+Cell[34021, 806, 700, 21, 51, "Input",ExpressionUUID->"c98b9b61-e36f-49fa-b400-8db0cee6cf5b"],
+Cell[34724, 829, 1007, 18, 81, "Text",ExpressionUUID->"fac4a397-6772-4ab0-8e65-29ed35cb00a7"],
+Cell[35734, 849, 692, 19, 71, "Input",ExpressionUUID->"7ef98f88-58d8-44f1-b98c-97ed4dded0e6"],
+Cell[36429, 870, 748, 14, 58, "Text",ExpressionUUID->"e1db3654-46ed-4fe3-88a1-9458eb058aa5"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
